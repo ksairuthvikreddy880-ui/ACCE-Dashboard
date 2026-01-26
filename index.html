@@ -1551,10 +1551,36 @@
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.2s ease;
+            margin-right: 8px;
+            margin-bottom: 8px;
         }
         
         .download-btn:hover {
             background: #1f2937;
+        }
+        
+        .register-btn {
+            background: #059669;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-bottom: 8px;
+        }
+        
+        .register-btn:hover {
+            background: #047857;
+        }
+        
+        .membership-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
         }
         
         /* CONTACT & SUPPORT STYLES */
@@ -3329,7 +3355,10 @@
                     <p class="fee-details">Subscription Fees</p>
                     <p class="fee-annual">Rs. 500.00 Annual</p>
                     <p class="fee-note">Amount to be paid: Rs. 500.00</p>
-                    <button class="download-btn">Download Form</button>
+                    <div class="membership-buttons">
+                        <button class="download-btn" onclick="downloadForm('students')">Download Form</button>
+                        <button class="register-btn" onclick="registerMembership('students')">Register Now</button>
+                    </div>
                 </div>
                 
                 <div class="membership-card">
@@ -3338,7 +3367,10 @@
                     <p class="fee-details">Subscription Fees</p>
                     <p class="fee-annual">Rs. 1000.00 Annual</p>
                     <p class="fee-note">Amount to be paid: Rs 2000.00 + 18% GST</p>
-                    <button class="download-btn">Download Form</button>
+                    <div class="membership-buttons">
+                        <button class="download-btn" onclick="downloadForm('associate')">Download Form</button>
+                        <button class="register-btn" onclick="registerMembership('associate')">Register Now</button>
+                    </div>
                 </div>
                 
                 <div class="membership-card">
@@ -3347,7 +3379,10 @@
                     <p class="fee-details">Subscription Fees</p>
                     <p class="fee-annual">Rs. 5000.00 Annual</p>
                     <p class="fee-note">Amount to be paid: Rs. 6000.00 + 18% GST</p>
-                    <button class="download-btn">Download Form</button>
+                    <div class="membership-buttons">
+                        <button class="download-btn" onclick="downloadForm('organization')">Download Form</button>
+                        <button class="register-btn" onclick="registerMembership('organization')">Register Now</button>
+                    </div>
                 </div>
                 
                 <div class="membership-card">
@@ -3356,7 +3391,10 @@
                     <p class="fee-details">Subscription Fees</p>
                     <p class="fee-annual">Rs. 8000.00 Annual</p>
                     <p class="fee-note">Amount to be paid: Rs. 9000.00 + 18% GST</p>
-                    <button class="download-btn">Download Form</button>
+                    <div class="membership-buttons">
+                        <button class="download-btn" onclick="downloadForm('life')">Download Form</button>
+                        <button class="register-btn" onclick="registerMembership('life')">Register Now</button>
+                    </div>
                 </div>
                 
                 <div class="membership-card">
@@ -3365,7 +3403,10 @@
                     <p class="fee-details">Subscription Fees</p>
                     <p class="fee-annual">Rs. 5000.00 Annual</p>
                     <p class="fee-note">Amount to be paid: Rs 6000.00 + 18% GST</p>
-                    <button class="download-btn">Download Form</button>
+                    <div class="membership-buttons">
+                        <button class="download-btn" onclick="downloadForm('organisation')">Download Form</button>
+                        <button class="register-btn" onclick="registerMembership('organisation')">Register Now</button>
+                    </div>
                 </div>
                 
                 <div class="membership-card">
@@ -3374,7 +3415,10 @@
                     <p class="fee-details">Subscription Fees</p>
                     <p class="fee-annual">Rs. 99000.00 Annual</p>
                     <p class="fee-note">Amount to be paid: Rs. 100000.00 + 18% GST</p>
-                    <button class="download-btn">Download Form</button>
+                    <div class="membership-buttons">
+                        <button class="download-btn" onclick="downloadForm('organisation-life')">Download Form</button>
+                        <button class="register-btn" onclick="registerMembership('organisation-life')">Register Now</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -4905,6 +4949,35 @@ Community outreach and public service projects</textarea>
             const tabButtons = document.querySelectorAll('#userLoginScreen .sub-nav-btn');
             tabButtons[0].classList.remove('active');
             tabButtons[1].classList.add('active');
+        }
+        
+        // Membership functions
+        function downloadForm(membershipType) {
+            // Mock download functionality
+            alert(`Downloading ${membershipType} membership form...`);
+            // In a real application, this would trigger a file download
+            console.log(`Download form for: ${membershipType}`);
+        }
+        
+        function registerMembership(membershipType) {
+            // Mock registration functionality
+            const membershipNames = {
+                'students': 'Students',
+                'associate': 'Associate',
+                'organization': 'Organization / Educational Institute',
+                'life': 'Life',
+                'organisation': 'Organisation',
+                'organisation-life': 'Organisation Life'
+            };
+            
+            const membershipName = membershipNames[membershipType] || membershipType;
+            const confirmRegistration = confirm(`Do you want to register for ${membershipName} membership?`);
+            
+            if (confirmRegistration) {
+                alert(`Registration initiated for ${membershipName} membership. You will be redirected to the payment gateway.`);
+                // In a real application, this would redirect to payment gateway or registration form
+                console.log(`Register for: ${membershipType}`);
+            }
         }
         
         // Add smooth scrolling and professional interactions
