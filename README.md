@@ -1,88 +1,164 @@
-# Premium Association Mobile App
+# ACCE Professional Association Platform
 
-A premium, modern mobile application for professional associations built with React Native and Expo.
+A modern, professional web application for the Association of Consulting Civil Engineers (India) - Hyderabad Centre.
 
-## Features
+## 🌟 Features
 
-- **Premium Mobile Design**: Native iOS/Android experience with smooth animations
-- **Welcome Screen**: Full-screen landing with "Explore App" button
-- **Home Dashboard**: Quick access to all features with statistics
-- **Events Management**: Browse and register for upcoming events
-- **Calendar Integration**: View important dates and highlights
-- **Board Directory**: Meet leadership team with contact information
-- **Contact System**: Multiple contact methods and message form
-- **Smooth Navigation**: Native stack navigation with custom transitions
+### 🎨 Professional Design
+- **Enterprise-grade UI** without emojis or cartoon elements
+- **Norwester font** for headings and member names
+- **Copperplate Gothic font** for welcome page
+- **Professional color scheme** with clean aesthetics
+- **Mobile-responsive design** for all devices
 
-## Design System
+### 🔐 Authentication System
+- **Folder animation login** with 2 options
+- **Combined Login/Signup** page with tab navigation
+- **Board Member access** with special privileges
+- **OTP verification** system
+- **Role-based UI** with edit capabilities
 
-### Visual Identity
-- **Premium Colors**: Sophisticated neutral palette with accent colors
-- **Typography**: Inter for headings, Source Sans Pro for body text
-- **Animations**: Smooth React Native Reanimated transitions
-- **Mobile-First**: Optimized for touch interactions and mobile UX
+### 👥 Board Members Management
+- **Professional member cards** with white borders
+- **GlareHover effects** on member cards
+- **Gmail integration** with clickable email icons
+- **WhatsApp integration** with StarBorder animations
+- **Profile photos** for all members
+- **Norwester font** for member names
 
-### Screens
-1. **Welcome Screen**: Full-screen introduction with explore button
-2. **Home Screen**: Dashboard with quick access menu and statistics
-3. **Events Screen**: List of upcoming events with registration
-4. **Calendar Screen**: Monthly highlights and full calendar access
-5. **Board Screen**: Leadership team directory with contact info
-6. **Contact Screen**: Multiple contact methods and message form
+### 📅 Events & Calendar
+- **Interactive calendar** with event highlights
+- **Events timeline** with READ MORE functionality
+- **Webinars table** with horizontal scroll
+- **Newsletters section** with download links
+- **Event management** for board members
 
-## Getting Started
+### 💼 Professional Features
+- **Bubble menu navigation** with color-coded items
+- **Membership plans** with detailed fee structure
+- **Contact forms** with professional styling
+- **About page** with Vision, Mission, Core Values
+- **Edit dashboard** for content management (board members only)
 
-1. Install dependencies:
+### 🎭 Animations & Effects
+- **Folder animation** for login options
+- **StarBorder effects** on WhatsApp numbers
+- **GlareHover effects** on member cards
+- **Bubble menu animations** with staggered timing
+- **Smooth transitions** throughout the app
+
+## 🚀 Technologies Used
+
+- **HTML5** - Semantic markup
+- **CSS3** - Advanced styling with animations
+- **JavaScript** - Interactive functionality
+- **Google Fonts** - Norwester & Copperplate Gothic
+- **Responsive Design** - Mobile-first approach
+
+## 📱 Pages & Sections
+
+1. **Welcome Page** - Professional landing with Copperplate Gothic font
+2. **Platform Options** - Folder animation login system
+3. **Main Dashboard** - Board members with wood grain background
+4. **Board Members** - Detailed member information with Gmail icons
+5. **Events & Calendar** - Calendar integration with events
+6. **Events & Newsletters** - Timeline and tables for content
+7. **Contact & Support** - Professional contact forms
+8. **Membership** - Detailed membership plans and fees
+9. **About** - Vision, Mission, Core Values, Activities
+10. **Edit Dashboard** - Content management (board members only)
+
+## 🎨 Design Elements
+
+### Color Scheme
+- **Primary**: Professional blues and grays
+- **Accent**: WhatsApp green for phone numbers
+- **Background**: Wood grain texture for warmth
+- **Cards**: White borders with transparent backgrounds
+
+### Typography
+- **Headings**: Norwester font for modern appeal
+- **Welcome**: Copperplate Gothic for elegance
+- **Body**: System fonts for readability
+
+### Animations
+- **Folder**: Smooth opening/closing with paper reveal
+- **StarBorder**: Moving gradients on WhatsApp numbers
+- **GlareHover**: White glare sweep on member cards
+- **Bubble Menu**: Staggered animations with color themes
+
+## 📋 Board Members - Hyderabad Centre
+
+- **S MAHENDER REDDY** - Chairman
+- **C MAHESH** - Secretary
+- **V CHENNAKESWARI NARMADA** - Treasurer
+- **Dr V BHIKSHMA** - MC Member
+- **EDEM BHANU PRASAD** - MC Member
+- **D S JAYA PRAKASH** - MC Member
+- **J BHEEM RAO** - MC Member
+- **Ch. D V PRASAD** - MC Member
+- **Ch. PURUSHOTHAM** - MC Member
+
+## 🔧 Setup & Installation
+
+1. Clone the repository:
 ```bash
-npm install
+git clone https://github.com/primeflex200-ui/ACCE.git
 ```
 
-2. Start the development server:
+2. Navigate to the project directory:
 ```bash
-npm start
+cd ACCE
 ```
 
-3. Run on device/simulator:
+3. Open `index.html` in a web browser or serve with a local server:
 ```bash
-# iOS
-npm run ios
-
-# Android
-npm run android
+python -m http.server 8000
 ```
 
-## Tech Stack
+4. Access the application at `http://localhost:8000`
 
-- **Framework**: React Native with Expo
-- **Navigation**: React Navigation 6
-- **Animations**: React Native Reanimated
-- **Icons**: Expo Vector Icons
-- **Gradients**: Expo Linear Gradient
-- **Language**: TypeScript
-
-## Project Structure
+## 📁 File Structure
 
 ```
-├── src/
-│   ├── screens/           # App screens
-│   ├── components/        # Reusable components
-│   └── constants/         # Colors, fonts, etc.
-├── assets/               # Images, fonts
-└── App.tsx              # Main app component
+ACCE/
+├── index.html                 # Main application file
+├── logo.png                   # ACCE logo
+├── welcome-bg.png            # Welcome page background
+├── home-dashboard-bg.png     # Dashboard background
+├── platform-options-bg.png  # Login page background
+├── profile-photo.jpg         # Member profile photos
+├── images.png               # WhatsApp icon
+├── about_us_img4.jpg        # About page images
+├── about_us_img5.jpg        # About page images
+├── package.json             # Project dependencies
+├── README.md               # Project documentation
+└── .gitignore             # Git ignore rules
 ```
 
-## Mobile Features
+## 🌐 Live Demo
 
-- **Native Navigation**: Stack-based navigation with gestures
-- **Touch Interactions**: Optimized button sizes and touch targets
-- **Responsive Design**: Adapts to different screen sizes
-- **Performance**: Optimized animations and smooth scrolling
-- **Accessibility**: Screen reader support and proper contrast
+Visit the live application: [ACCE Platform](https://primeflex200-ui.github.io/ACCE/)
 
-## Customization
+## 🤝 Contributing
 
-- **Colors**: Update `src/constants/Colors.ts`
-- **Fonts**: Modify `src/constants/Fonts.ts` and add font files
-- **Content**: Update screen components with your data
-- **Animations**: Adjust timing in `AnimatedView` component
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This is a true mobile app experience, not a web app - built specifically for iOS and Android with native performance and interactions.
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Contact
+
+**Association of Consulting Civil Engineers (India)**
+- **Website**: [ACCE Official](https://www.acce.org.in)
+- **Email**: info@acce.org.in
+- **Location**: Hyderabad Centre
+
+---
+
+**Built with ❤️ for ACCE Hyderabad Centre**
