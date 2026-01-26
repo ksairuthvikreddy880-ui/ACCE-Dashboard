@@ -1,0 +1,4952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Association Platform</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Norwester&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #ffffff;
+            color: #1f2937;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background: #ffffff;
+        }
+        
+        /* Professional Navigation */
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .nav-logo-image {
+            height: 50px;
+            max-width: 200px;
+            object-fit: contain;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1f2937;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        
+        .nav-link {
+            color: #6b7280;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #1f2937;
+        }
+        
+        .nav-link.active {
+            color: #1f2937;
+        }
+        
+        /* Welcome Section */
+        .welcome-section {
+            background-image: url('welcome-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding: 120px 24px 80px;
+            text-align: center;
+            border-bottom: 1px solid #f3f4f6;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1;
+        }
+        
+        .welcome-section > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .welcome-content {
+            max-width: 600px;
+            margin: 0 auto;
+            margin-top: 60px;
+        }
+        
+        .company-logo {
+            width: 200px;
+            height: 80px;
+            margin: 0 auto 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+        
+        .logo-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            color: white;
+            font-weight: 600;
+            font-size: 24px;
+        }
+        
+        .main-title {
+            font-family: 'Copperplate Gothic', 'Copperplate', 'Fantasy', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        }
+        
+        .title-accent {
+            font-family: 'Copperplate Gothic', 'Copperplate', 'Fantasy', serif;
+            color: #374151;
+            display: block;
+            margin-top: 8px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        }
+        
+        .main-description {
+            font-family: 'Copperplate Gothic', 'Copperplate', 'Fantasy', serif;
+            font-size: 20px;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 48px;
+            font-weight: 400;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9);
+        }
+        
+        .cta-button {
+            font-family: 'Copperplate Gothic', 'Copperplate', 'Fantasy', serif;
+            background: #374151;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button:hover {
+            background: #1f2937;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+        
+        .arrow-icon {
+            font-size: 14px;
+            transition: transform 0.2s ease;
+        }
+        
+        .cta-button:hover .arrow-icon {
+            transform: translateX(2px);
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: none;
+            padding: 48px 24px;
+            background-image: url('home-dashboard-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.15);
+            z-index: 1;
+        }
+        
+        .main-content > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .main-content.active {
+            display: block;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .content-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        .menu-container {
+            position: relative;
+        }
+        
+        .menu-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+        
+        .menu-button:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .menu-dots {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 26px;
+            height: 20px;
+        }
+        
+        .menu-line {
+            width: 26px;
+            height: 2px;
+            background-color: #6b7280;
+            border-radius: 2px;
+            display: block;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        
+        .menu-button:hover .menu-line {
+            background-color: #374151;
+        }
+        
+        .menu-button.open .menu-line:first-child {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .menu-button.open .menu-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-button.open .menu-line:last-child {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        
+        /* Bubble Menu Styles */
+        .bubble-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(2px);
+        }
+        
+        .bubble-menu-overlay.show {
+            display: flex;
+        }
+        
+        .bubble-menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 800px;
+            padding: 40px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .bubble-menu-item {
+            background: white;
+            border-radius: 50px;
+            padding: 20px 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            text-decoration: none;
+            color: #374151;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            transform: scale(0);
+            cursor: pointer;
+            border: none;
+            min-width: 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bubble-menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .bubble-menu-item.about:hover {
+            background: #10b981;
+            color: white;
+        }
+        
+        .bubble-menu-item.board:hover {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .bubble-menu-item.contact:hover {
+            background: #f59e0b;
+            color: white;
+        }
+        
+        .bubble-menu-item.events:hover {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .bubble-menu-item.newsletters:hover {
+            background: #8b5cf6;
+            color: white;
+        }
+        
+        .bubble-menu-item.membership:hover {
+            background: #06b6d4;
+            color: white;
+        }
+        
+        .bubble-menu-item.edit:hover {
+            background: #059669;
+            color: white;
+        }
+        
+        /* Single Folder Animation Styles */
+        .folder-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 40px 40px;
+            min-height: 400px;
+        }
+        
+        .single-folder-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .single-folder {
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            transform: scale(1.5);
+        }
+        
+        .single-folder:hover {
+            transform: scale(1.5) translateY(-8px);
+        }
+        
+        .single-folder:hover .paper {
+            transform: translate(-50%, 0%);
+        }
+        
+        .single-folder:hover .folder__front {
+            transform: skew(15deg) scaleY(0.6);
+        }
+        
+        .single-folder:hover .folder__front.right {
+            transform: skew(-15deg) scaleY(0.6);
+        }
+        
+        .single-folder.open {
+            transform: scale(1.5) translateY(-8px);
+        }
+        
+        .single-folder.open .paper:nth-child(1) {
+            transform: translate(-150%, -80%) rotateZ(-15deg);
+        }
+        
+        .single-folder.open .paper:nth-child(1):hover {
+            transform: translate(-150%, -80%) rotateZ(-15deg) scale(1.1);
+        }
+        
+        .single-folder.open .paper:nth-child(2) {
+            transform: translate(50%, -80%) rotateZ(15deg);
+        }
+        
+        .single-folder.open .paper:nth-child(2):hover {
+            transform: translate(50%, -80%) rotateZ(15deg) scale(1.1);
+        }
+        
+        .single-folder.open .folder__front {
+            transform: skew(15deg) scaleY(0.6);
+        }
+        
+        .single-folder.open .folder__front.right {
+            transform: skew(-15deg) scaleY(0.6);
+        }
+        
+        .folder__back {
+            position: relative;
+            width: 80px;
+            height: 65px;
+            background: #3b82f6;
+            border-radius: 0px 8px 8px 8px;
+        }
+        
+        .folder__back::after {
+            position: absolute;
+            z-index: 0;
+            bottom: 98%;
+            left: 0;
+            content: '';
+            width: 25px;
+            height: 8px;
+            background: #3b82f6;
+            border-radius: 4px 4px 0 0;
+        }
+        
+        .paper {
+            position: absolute;
+            z-index: 2;
+            bottom: 10%;
+            left: 50%;
+            transform: translate(-50%, 10%);
+            width: 70%;
+            height: 75%;
+            border-radius: 6px;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        
+        .single-folder.open .paper {
+            pointer-events: auto;
+        }
+        
+        .single-folder:not(.open) .paper {
+            pointer-events: none;
+        }
+        
+        .paper:nth-child(1) {
+            background: #e3f2fd;
+            width: 75%;
+            height: 85%;
+        }
+        
+        .paper:nth-child(2) {
+            background: #e8f5e8;
+            width: 75%;
+            height: 85%;
+        }
+        
+        .paper-option {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .paper-option:hover {
+            border-color: #2563eb;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        
+        .paper-content {
+            text-align: center;
+            font-size: 8px;
+            color: #374151;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 6px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .single-folder.open .paper-content {
+            opacity: 1;
+        }
+        
+        .paper-icon {
+            font-size: 12px;
+            margin-bottom: 3px;
+        }
+        
+        .paper-title {
+            font-weight: 600;
+            margin-bottom: 1px;
+            font-size: 7px;
+            line-height: 1.2;
+        }
+        
+        .paper-desc {
+            font-size: 5px;
+            color: #6b7280;
+            line-height: 1.1;
+        }
+        
+        .folder__front {
+            position: absolute;
+            z-index: 3;
+            width: 100%;
+            height: 100%;
+            background: #2563eb;
+            border-radius: 4px 8px 8px 8px;
+            transform-origin: bottom;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .folder__front.right {
+            position: absolute;
+            z-index: 3;
+            width: 100%;
+            height: 100%;
+            background: #2563eb;
+            border-radius: 4px 8px 8px 8px;
+            transform-origin: bottom;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .folder-main-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: #374151;
+            text-align: center;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        }
+        
+        .folder-main-description {
+            font-size: 14px;
+            color: #6b7280;
+            text-align: center;
+            max-width: 250px;
+            line-height: 1.4;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Selection animation */
+        .paper-selected {
+            transform: translate(-50%, -200%) scale(1.2) !important;
+            z-index: 10;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .bubble-menu-items {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+            
+            .bubble-menu-item {
+                width: 200px;
+                padding: 15px 25px;
+            }
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            min-width: 180px;
+            z-index: 1000;
+            display: none;
+            margin-top: 8px;
+        }
+        
+        .dropdown-menu.show {
+            display: block;
+            animation: fadeInDown 0.2s ease-out;
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 12px 16px;
+            color: #374151;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f9fafb;
+            color: #1f2937;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 64px;
+        }
+        
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-family: 'Norwester', sans-serif;
+            font-size: 32px;
+            font-weight: 400;
+            color: #111827;
+            margin-bottom: 24px;
+            letter-spacing: 0.05em;
+        }
+        
+        .section-text {
+            font-size: 18px;
+            color: #6b7280;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        
+        .core-values-text {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        
+        /* Mission Grid */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-top: 32px;
+            text-align: left;
+        }
+        
+        .mission-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .mission-list li {
+            font-size: 16px;
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .mission-list li::before {
+            content: "•";
+            color: #374151;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Activities List */
+        .activities-list {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 32px auto 0;
+            text-align: left;
+        }
+        
+        .activities-list li {
+            font-size: 16px;
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .activities-list li::before {
+            content: "•";
+            color: #374151;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Image Placeholders */
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #f9fafb;
+            border: 2px dashed #d1d5db;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 48px 0;
+        }
+        
+        .placeholder-text {
+            color: #9ca3af;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        /* Content Images */
+        .content-image {
+            width: 100%;
+            margin: 48px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
+        }
+        
+        .page-subtitle {
+            font-size: 18px;
+            color: #6b7280;
+            font-weight: 400;
+        }
+        
+        /* Feature Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 32px 24px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+        
+        .feature-card:hover {
+            border-color: #d1d5db;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+        
+        .feature-description {
+            font-size: 16px;
+            color: #6b7280;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+        
+        .feature-link {
+            color: #374151;
+            font-weight: 500;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .feature-link:hover {
+            color: #1f2937;
+        }
+        
+        /* Statistics Section */
+        .stats-section {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 40px 32px;
+            margin-top: 48px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 16px;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .nav-right {
+                gap: 16px;
+            }
+            
+            .main-title {
+                font-size: 32px;
+            }
+            
+            .main-description {
+                font-size: 18px;
+            }
+            
+            .mission-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+        }
+        
+        /* NEW SCREENS STYLES */
+        .screen {
+            min-height: 100vh;
+            background: white;
+            padding: 20px;
+        }
+        
+        /* Platform Options Screen Background */
+        #platformOptionsScreen {
+            background-image: url('platform-options-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        #platformOptionsScreen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1;
+        }
+        
+        #platformOptionsScreen > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .screen-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        #platformOptionsScreen .screen-title {
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        }
+        
+        #platformOptionsScreen .back-button {
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+        
+        .back-button {
+            background: none;
+            border: none;
+            color: #374151;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 8px 0;
+            margin-right: 20px;
+        }
+        
+        .back-button::after {
+            content: '';
+        }
+        
+        .screen-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #111827;
+        }
+        
+        /* BOARD MEMBERS STYLES */
+        .board-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* GlareHover CSS */
+        .glare-hover {
+            width: var(--gh-width);
+            height: var(--gh-height);
+            background: var(--gh-bg);
+            border-radius: var(--gh-br);
+            border: 1px solid var(--gh-border);
+            overflow: hidden;
+            position: relative;
+            display: grid;
+            place-items: center;
+        }
+        
+        .glare-hover::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(var(--gh-angle),
+                hsla(0, 0%, 0%, 0) 60%,
+                var(--gh-rgba) 70%,
+                hsla(0, 0%, 0%, 0),
+                hsla(0, 0%, 0%, 0) 100%);
+            transition: var(--gh-duration) ease;
+            background-size: var(--gh-size) var(--gh-size), 100% 100%;
+            background-repeat: no-repeat;
+            background-position: -100% -100%, 0 0;
+        }
+        
+        .glare-hover:hover {
+            cursor: pointer;
+        }
+        
+        .glare-hover:hover::before {
+            background-position: 100% 100%, 0 0;
+        }
+        
+        .glare-hover--play-once::before {
+            transition: none;
+        }
+        
+        .glare-hover--play-once:hover::before {
+            transition: var(--gh-duration) ease;
+            background-position: 100% 100%, 0 0;
+        }
+        
+        .member-card {
+            background: transparent;
+            border: 2px solid white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            
+            /* GlareHover variables */
+            --gh-width: 100%;
+            --gh-height: 100%;
+            --gh-bg: transparent;
+            --gh-br: 12px;
+            --gh-angle: -30deg;
+            --gh-duration: 800ms;
+            --gh-size: 300%;
+            --gh-rgba: rgba(255, 255, 255, 0.3);
+            --gh-border: white;
+        }
+        
+        .member-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(var(--gh-angle),
+                hsla(0, 0%, 0%, 0) 60%,
+                var(--gh-rgba) 70%,
+                hsla(0, 0%, 0%, 0),
+                hsla(0, 0%, 0%, 0) 100%);
+            transition: var(--gh-duration) ease;
+            background-size: var(--gh-size) var(--gh-size), 100% 100%;
+            background-repeat: no-repeat;
+            background-position: -100% -100%, 0 0;
+            z-index: 1;
+        }
+        
+        .member-card:hover::before {
+            background-position: 100% 100%, 0 0;
+        }
+        
+        .member-card > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .member-image-placeholder {
+            width: 80px;
+            height: 80px;
+            background: #f3f4f6;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            border: 2px dashed #d1d5db;
+        }
+        
+        .member-profile-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .member-info {
+            text-align: center;
+        }
+        
+        .member-name {
+            font-family: 'Norwester', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #111827;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            letter-spacing: 0.02em;
+        }
+        
+        .member-role {
+            font-size: 14px;
+            color: #2563eb;
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+        
+        .member-email {
+            font-size: 16px;
+            color: #2563eb;
+            margin-bottom: 5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .member-email:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+            transform: scale(1.02);
+        }
+        
+        .gmail-icon {
+            width: 20px;
+            height: 20px;
+            background: #ea4335;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .member-phone-large {
+            font-size: 18px;
+            color: #374151;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+        
+        .member-phone-large:hover {
+            color: #25d366;
+            text-decoration: underline;
+            transform: scale(1.05);
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Phone Container with WhatsApp Icon */
+        .phone-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 5px;
+        }
+        
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            transition: transform 0.2s ease;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            padding: 2px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* StarBorder Styles for WhatsApp Numbers */
+        .star-border-container {
+            display: inline-block;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            padding: 2px;
+        }
+        
+        .border-gradient-bottom {
+            position: absolute;
+            width: 300%;
+            height: 50%;
+            opacity: 0.7;
+            bottom: -12px;
+            right: -250%;
+            border-radius: 50%;
+            background: radial-gradient(circle, #25d366, transparent 10%);
+            animation: star-movement-bottom 4s linear infinite alternate;
+            z-index: 0;
+        }
+        
+        .border-gradient-top {
+            position: absolute;
+            opacity: 0.7;
+            width: 300%;
+            height: 50%;
+            top: -12px;
+            left: -250%;
+            border-radius: 50%;
+            background: radial-gradient(circle, #25d366, transparent 10%);
+            animation: star-movement-top 4s linear infinite alternate;
+            z-index: 0;
+        }
+        
+        .star-inner-content {
+            position: relative;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            z-index: 1;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .star-border-container:hover .star-inner-content {
+            background: rgba(37, 211, 102, 0.1);
+            border-color: #25d366;
+            transform: scale(1.02);
+        }
+        
+        @keyframes star-movement-bottom {
+            0% {
+                transform: translate(0%, 0%);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-100%, 0%);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes star-movement-top {
+            0% {
+                transform: translate(0%, 0%);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(100%, 0%);
+                opacity: 0;
+            }
+        }
+        
+        /* Enhanced phone number styling within star border */
+        .star-border-container .member-phone-large {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #374151;
+            text-shadow: none;
+        }
+        
+        .star-border-container:hover .member-phone-large {
+            color: #25d366;
+            transform: none;
+        }
+        
+        .star-border-container .whatsapp-icon {
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid rgba(37, 211, 102, 0.3);
+        }
+        
+        .phone-container:hover .whatsapp-icon {
+            transform: scale(1.1);
+        }
+        
+        /* CALENDAR STYLES */
+        .calendar-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+        }
+        
+        .calendar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+        
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #374151;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .month-year {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111827;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #e5e7eb;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .day-header {
+            background: #f9fafb;
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            color: #374151;
+            font-size: 14px;
+        }
+        
+        .calendar-day {
+            background: white;
+            padding: 12px;
+            text-align: center;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            cursor: pointer;
+        }
+        
+        .calendar-day:hover {
+            background: #f9fafb;
+        }
+        
+        .event-day {
+            background: #2563eb !important;
+            color: white !important;
+            font-weight: 600;
+        }
+        
+        /* EVENTS LIST BELOW CALENDAR */
+        .events-list {
+            margin-top: 30px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .events-list-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 8px;
+        }
+        
+        .event-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .event-item:last-child {
+            border-bottom: none;
+        }
+        
+        .event-name {
+            font-size: 16px;
+            color: #374151;
+            font-weight: 500;
+        }
+        
+        /* EVENTS STYLES */
+        .upcoming-events-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e5e7eb;
+        }
+        
+        .upcoming-events-section .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        
+        .events-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .event-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .event-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+        
+        .event-date {
+            font-size: 14px;
+            color: #2563eb;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        
+        .event-description {
+            font-size: 16px;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+        
+        /* MEMBERSHIP STYLES */
+        .membership-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .membership-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .membership-type {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 15px;
+        }
+        
+        .fee-amount {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        
+        .fee-details {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+        
+        .fee-annual {
+            font-size: 16px;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+        
+        .fee-note {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+        
+        .download-btn {
+            background: #374151;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .download-btn:hover {
+            background: #1f2937;
+        }
+        
+        /* CONTACT & SUPPORT STYLES */
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-section {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .contact-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 8px;
+        }
+        
+        .contact-description {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            font-size: 14px;
+            color: #374151;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        
+        .form-input, .form-textarea {
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            background: #f9fafb;
+        }
+        
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            background: white;
+        }
+        
+        .send-button {
+            background: #06b6d4;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .send-button:hover {
+            background: #0891b2;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .contact-item {
+            font-size: 14px;
+            color: #374151;
+            line-height: 1.5;
+        }
+        
+        .contact-link {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+        
+        .newsletter-description {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        
+        .newsletter-button {
+            background: #374151;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .newsletter-button:hover {
+            background: #1f2937;
+        }
+        
+        .newsletter-note {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+        
+        /* EVENTS & NEWSLETTERS STYLES */
+        .sub-nav {
+            display: flex;
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 4px;
+            margin-bottom: 30px;
+            gap: 4px;
+        }
+        
+        .sub-nav-btn {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #6b7280;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .sub-nav-btn.active {
+            background: white;
+            color: #374151;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sub-section {
+            display: none;
+        }
+        
+        .sub-section.active {
+            display: block;
+        }
+        
+        /* Timeline Styles */
+        .events-timeline {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 60px;
+            width: 2px;
+            height: 30px;
+            background: #e5e7eb;
+        }
+        
+        .timeline-date {
+            margin-right: 20px;
+        }
+        
+        .date-circle {
+            width: 40px;
+            height: 40px;
+            background: #f3f4f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .event-badge {
+            background: #06b6d4;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        
+        .event-badge-type {
+            background: #e5e7eb;
+            color: #374151;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            display: inline-block;
+            margin-left: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+        
+        .read-more-btn {
+            background: transparent;
+            border: 2px solid #06b6d4;
+            color: #06b6d4;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .read-more-btn:hover {
+            background: #06b6d4;
+            color: white;
+        }
+        
+        /* Table Styles */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .webinars-table, .newsletters-table {
+            background: white;
+            min-width: 800px; /* Ensure minimum width for proper display */
+        }
+        
+        .table-header {
+            display: grid;
+            grid-template-columns: 50px 100px 80px 300px 200px; /* Fixed widths for better control */
+            background: #f9fafb;
+            border-bottom: 1px solid #e5e7eb;
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .newsletters-table {
+            min-width: auto; /* Newsletters table doesn't need horizontal scroll */
+        }
+        
+        .newsletters-table .table-header {
+            grid-template-columns: 60px 120px 1fr;
+        }
+        
+        .table-row {
+            display: grid;
+            grid-template-columns: 50px 100px 80px 300px 200px; /* Match header columns */
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .newsletters-table .table-row {
+            grid-template-columns: 60px 120px 1fr;
+        }
+        
+        .table-row:last-child {
+            border-bottom: none;
+        }
+        
+        .table-cell {
+            padding: 12px 8px;
+            font-size: 14px;
+            color: #374151;
+            display: flex;
+            align-items: center;
+        }
+        
+        .invitation-card {
+            width: 40px;
+            height: 40px;
+            background: #fef3c7;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .webinar-link, .newsletter-link {
+            color: #06b6d4;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        
+        .webinar-link:hover, .newsletter-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .modal-header h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111827;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #6b7280;
+            cursor: pointer;
+            padding: 4px;
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        .modal-body p {
+            font-size: 16px;
+            color: #374151;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        /* LOGIN & AUTH STYLES */
+        .welcome-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .auth-button {
+            background: transparent;
+            border: 2px solid #374151;
+            color: #374151;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        
+        .auth-button:hover {
+            background: #374151;
+            color: white;
+        }
+        
+        .login-btn {
+            border-color: #2563eb;
+            color: #2563eb;
+        }
+        
+        .login-btn:hover {
+            background: #2563eb;
+            color: white;
+        }
+        
+        .signup-btn {
+            border-color: #059669;
+            color: #059669;
+        }
+        
+        .signup-btn:hover {
+            background: #059669;
+            color: white;
+        }
+        
+        /* Login Selection Screen */
+        .login-selection-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .login-option-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .login-option-card:hover {
+            border-color: #2563eb;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .login-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .login-icon-professional {
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .icon-circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            border: 2px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        
+        .login-option-card:hover .icon-circle {
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+        
+        .icon-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #6b7280;
+            transition: color 0.2s ease;
+        }
+        
+        .login-option-card:hover .icon-text {
+            color: white;
+        }
+        
+        /* Platform Options Screen */
+        .platform-options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .platform-nav-bar {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px 20px;
+            cursor: pointer;
+            transition: box-shadow 0.2s ease;
+        }
+        
+        .platform-nav-bar:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-bar-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .nav-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .nav-icon-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #6b7280;
+        }
+        
+        .nav-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .nav-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+        }
+        
+        .nav-subtitle {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.3;
+        }
+        
+        .nav-arrow {
+            font-size: 18px;
+            color: #9ca3af;
+            flex-shrink: 0;
+        }
+        
+        /* About Screen Styles */
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .login-option-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+        
+        .login-option-description {
+            font-size: 16px;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+        
+        /* Login Form Styles */
+        .login-form-container {
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        
+        .login-form-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .login-form .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .login-form .form-group label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+        
+        .login-form .form-input {
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            background: white;
+            transition: border-color 0.2s ease;
+        }
+        
+        .login-form .form-input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+        
+        .helper-text {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+        
+        .login-submit-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .login-submit-btn:hover {
+            background: #1d4ed8;
+        }
+        
+        .resend-btn {
+            background: transparent;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .resend-btn:hover {
+            background: #2563eb;
+            color: white;
+        }
+        
+        .otp-message {
+            font-size: 16px;
+            color: #6b7280;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .otp-input {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 4px;
+        }
+        
+        /* Edit Option Styles */
+        .dropdown-item.edit-enabled {
+            color: #059669 !important;
+            cursor: pointer !important;
+        }
+        
+        .dropdown-item.edit-enabled:hover {
+            background-color: #ecfdf5 !important;
+            color: #047857 !important;
+        }
+        
+        /* Edit Dashboard Styles */
+        .edit-dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .edit-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+        
+        .edit-section-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .edit-section-card:hover {
+            border-color: #2563eb;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .edit-section-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 20px;
+        }
+        
+        .edit-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+        
+        .edit-section-description {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+        
+        /* Edit Form Styles */
+        .edit-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .edit-form-section {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .edit-form-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 8px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .form-row.full-width {
+            grid-template-columns: 1fr;
+        }
+        
+        .edit-form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .edit-form-group label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+        
+        .edit-form-input, .edit-form-textarea, .edit-form-select {
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            transition: border-color 0.2s ease;
+        }
+        
+        .edit-form-input:focus, .edit-form-textarea:focus, .edit-form-select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+        
+        .edit-form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .edit-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .save-btn {
+            background: #059669;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .save-btn:hover {
+            background: #047857;
+        }
+        
+        .cancel-btn {
+            background: transparent;
+            color: #6b7280;
+            border: 2px solid #e5e7eb;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .cancel-btn:hover {
+            border-color: #d1d5db;
+            color: #374151;
+        }
+        
+        .delete-btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .delete-btn:hover {
+            background: #b91c1c;
+        }
+        
+        .add-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-bottom: 16px;
+        }
+        
+        .add-btn:hover {
+            background: #1d4ed8;
+        }
+        
+        /* Event List Styles */
+        .event-list-item {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .event-item-info {
+            flex: 1;
+        }
+        
+        .event-item-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+        
+        .event-item-date {
+            font-size: 14px;
+            color: #6b7280;
+        }
+        
+        .event-item-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .edit-btn {
+            background: #f59e0b;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        /* Logout Item Styling */
+        .logout-item {
+            border-top: 1px solid #f3f4f6;
+            color: #dc2626 !important;
+        }
+        
+        .logout-item:hover {
+            background-color: #fef2f2 !important;
+            color: #b91c1c !important;
+        }
+        
+        /* Responsive Design for Login */
+        @media (max-width: 768px) {
+            .auth-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .auth-button {
+                width: 100%;
+            }
+            
+            .login-selection-container {
+                grid-template-columns: 1fr;
+                padding: 20px 10px;
+            }
+            
+            .login-form-card {
+                padding: 24px;
+                margin: 0 10px;
+            }
+        }
+        
+        .useful-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .useful-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .useful-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Professional Navigation -->
+        <nav class="navbar">
+            <div class="nav-content">
+                <a href="#" class="nav-logo">
+                    <img src="logo.png" alt="Association of Consulting Civil Engineers (India)" class="nav-logo-image" />
+                </a>
+                <div class="nav-right">
+                    <div class="nav-links">
+                        <a href="#" class="nav-link active">Home</a>
+                        <a href="#" class="nav-link">Events</a>
+                        <a href="#" class="nav-link">Calendar</a>
+                        <a href="#" class="nav-link">Board</a>
+                        <a href="#" class="nav-link">Contact</a>
+                    </div>
+                    <div id="menuContainer" class="menu-container" style="display: none;">
+                        <button class="menu-button" id="menuButton" onclick="toggleBubbleMenu()">
+                            <span class="menu-dots">
+                                <span class="menu-line"></span>
+                                <span class="menu-line"></span>
+                                <span class="menu-line"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Welcome Section -->
+        <section id="welcomeSection" class="welcome-section">
+            <div class="welcome-content">
+                <h1 class="main-title fade-in">
+                    Welcome to Your
+                    <span class="title-accent">Professional Community</span>
+                </h1>
+                <p class="main-description fade-in">
+                    Connect, collaborate, and grow with industry leaders. Access exclusive events, 
+                    resources, and networking opportunities designed for professionals like you.
+                </p>
+                <button class="cta-button fade-in" onclick="showPlatformOptions()">
+                    Explore Platform
+                    <span class="arrow-icon">→</span>
+                </button>
+            </div>
+        </section>
+        
+        <!-- Main Content -->
+        <main id="mainContent" class="main-content">
+            <div class="content-wrapper">
+                <!-- Board Members Section on Main Dashboard -->
+                <section class="content-section">
+                    <div class="section-content">
+                        <h2 class="section-title">Board Members - Hyderabad Centre</h2>
+                        <p class="section-text">Meet our dedicated board members who lead the Hyderabad Centre</p>
+                    </div>
+                </section>
+                
+                <div class="board-container">
+                    <div class="member-card">
+                        <img src="profile-photo.jpg" alt="S MAHENDER REDDY" class="member-profile-image" />
+                        <div class="member-info">
+                            <h3 class="member-name">S MAHENDER REDDY</h3>
+                            <p class="member-role">Chairman</p>
+                            <div class="star-border-container">
+                                <div class="border-gradient-bottom"></div>
+                                <div class="border-gradient-top"></div>
+                                <div class="star-inner-content">
+                                    <img src="images.png" alt="WhatsApp" class="whatsapp-icon" />
+                                    <a href="https://wa.me/919246520410" target="_blank" class="member-phone-large">9246520410</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <img src="profile-photo.jpg" alt="C MAHESH" class="member-profile-image" />
+                        <div class="member-info">
+                            <h3 class="member-name">C MAHESH</h3>
+                            <p class="member-role">Secretary</p>
+                            <div class="star-border-container">
+                                <div class="border-gradient-bottom"></div>
+                                <div class="border-gradient-top"></div>
+                                <div class="star-inner-content">
+                                    <img src="images.png" alt="WhatsApp" class="whatsapp-icon" />
+                                    <a href="https://wa.me/919849028573" target="_blank" class="member-phone-large">9849028573</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <img src="profile-photo.jpg" alt="V CHENNAKESWARI NARMADA" class="member-profile-image" />
+                        <div class="member-info">
+                            <h3 class="member-name">V CHENNAKESWARI NARMADA</h3>
+                            <p class="member-role">Treasurer</p>
+                            <div class="star-border-container">
+                                <div class="border-gradient-bottom"></div>
+                                <div class="border-gradient-top"></div>
+                                <div class="star-inner-content">
+                                    <img src="images.png" alt="WhatsApp" class="whatsapp-icon" />
+                                    <a href="https://wa.me/919490260261" target="_blank" class="member-phone-large">9490260261</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <img src="profile-photo.jpg" alt="Dr V BHIKSHMA" class="member-profile-image" />
+                        <div class="member-info">
+                            <h3 class="member-name">Dr V BHIKSHMA</h3>
+                            <p class="member-role">MC MEMBER</p>
+                            <div class="star-border-container">
+                                <div class="border-gradient-bottom"></div>
+                                <div class="border-gradient-top"></div>
+                                <div class="star-inner-content">
+                                    <img src="images.png" alt="WhatsApp" class="whatsapp-icon" />
+                                    <a href="https://wa.me/919949638885" target="_blank" class="member-phone-large">9949638885</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <img src="profile-photo.jpg" alt="EDEM BHANU PRASAD" class="member-profile-image" />
+                        <div class="member-info">
+                            <h3 class="member-name">EDEM BHANU PRASAD</h3>
+                            <p class="member-role">MC MEMBER</p>
+                            <div class="star-border-container">
+                                <div class="border-gradient-bottom"></div>
+                                <div class="border-gradient-top"></div>
+                                <div class="star-inner-content">
+                                    <img src="images.png" alt="WhatsApp" class="whatsapp-icon" />
+                                    <a href="https://wa.me/918894725019" target="_blank" class="member-phone-large">8894725019</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <img src="profile-photo.jpg" alt="D S JAYA PRAKASH" class="member-profile-image" />
+                        <div class="member-info">
+                            <h3 class="member-name">D S JAYA PRAKASH</h3>
+                            <p class="member-role">MC MEMBER</p>
+                            <div class="star-border-container">
+                                <div class="border-gradient-bottom"></div>
+                                <div class="border-gradient-top"></div>
+                                <div class="star-inner-content">
+                                    <img src="images.png" alt="WhatsApp" class="whatsapp-icon" />
+                                    <a href="https://wa.me/919849059491" target="_blank" class="member-phone-large">9849059491</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <img src="profile-photo.jpg" alt="J BHEEM RAO" class="member-profile-image" />
+                        <div class="member-info">
+                            <h3 class="member-name">J BHEEM RAO</h3>
+                            <p class="member-role">MC MEMBER</p>
+                            <div class="star-border-container">
+                                <div class="border-gradient-bottom"></div>
+                                <div class="border-gradient-top"></div>
+                                <div class="star-inner-content">
+                                    <img src="images.png" alt="WhatsApp" class="whatsapp-icon" />
+                                    <a href="https://wa.me/919849028573" target="_blank" class="member-phone-large">9849028573</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <img src="profile-photo.jpg" alt="Ch. D V PRASAD" class="member-profile-image" />
+                        <div class="member-info">
+                            <h3 class="member-name">Ch. D V PRASAD</h3>
+                            <p class="member-role">MC MEMBER</p>
+                            <div class="star-border-container">
+                                <div class="border-gradient-bottom"></div>
+                                <div class="border-gradient-top"></div>
+                                <div class="star-inner-content">
+                                    <img src="images.png" alt="WhatsApp" class="whatsapp-icon" />
+                                    <a href="https://wa.me/919848068506" target="_blank" class="member-phone-large">9848068506</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <img src="profile-photo.jpg" alt="Ch. PURUSHOTHAM" class="member-profile-image" />
+                        <div class="member-info">
+                            <h3 class="member-name">Ch. PURUSHOTHAM</h3>
+                            <p class="member-role">MC MEMBER</p>
+                            <div class="star-border-container">
+                                <div class="border-gradient-bottom"></div>
+                                <div class="border-gradient-top"></div>
+                                <div class="star-inner-content">
+                                    <img src="images.png" alt="WhatsApp" class="whatsapp-icon" />
+                                    <a href="https://wa.me/918096910234" target="_blank" class="member-phone-large">8096910234</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- BOARD MEMBERS SCREEN -->
+        <div id="boardScreen" class="screen" style="display: none;">
+            <div class="screen-header">
+                <button class="back-button" onclick="showHome()">←</button>
+                <h2 class="screen-title">Board Members - Hyderabad Centre</h2>
+            </div>
+            <div class="board-container">
+                <div class="member-card">
+                    <img src="profile-photo.jpg" alt="S MAHENDER REDDY" class="member-profile-image" />
+                    <div class="member-info">
+                        <h3 class="member-name">S MAHENDER REDDY</h3>
+                        <p class="member-role">Chairman</p>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=asaconsultants.mahender@gmail.com" target="_blank" class="member-email">
+                            <span class="gmail-icon">@</span>
+                            asaconsultants.mahender@gmail.com
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <img src="profile-photo.jpg" alt="C MAHESH" class="member-profile-image" />
+                    <div class="member-info">
+                        <h3 class="member-name">C MAHESH</h3>
+                        <p class="member-role">Secretary</p>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@kengineers.co.in" target="_blank" class="member-email">
+                            <span class="gmail-icon">@</span>
+                            info@kengineers.co.in
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <img src="profile-photo.jpg" alt="V CHENNAKESWARI NARMADA" class="member-profile-image" />
+                    <div class="member-info">
+                        <h3 class="member-name">V CHENNAKESWARI NARMADA</h3>
+                        <p class="member-role">Treasurer</p>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=narmada.novospace@gmail.com" target="_blank" class="member-email">
+                            <span class="gmail-icon">@</span>
+                            narmada.novospace@gmail.com
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <img src="profile-photo.jpg" alt="Dr V BHIKSHMA" class="member-profile-image" />
+                    <div class="member-info">
+                        <h3 class="member-name">Dr V BHIKSHMA</h3>
+                        <p class="member-role">MC MEMBER</p>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=v.bhikshma@yahoo.co.in" target="_blank" class="member-email">
+                            <span class="gmail-icon">@</span>
+                            v.bhikshma@yahoo.co.in
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <img src="profile-photo.jpg" alt="EDEM BHANU PRASAD" class="member-profile-image" />
+                    <div class="member-info">
+                        <h3 class="member-name">EDEM BHANU PRASAD</h3>
+                        <p class="member-role">MC MEMBER</p>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=c_prasads@yahoo.com" target="_blank" class="member-email">
+                            <span class="gmail-icon">@</span>
+                            c_prasads@yahoo.com
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <img src="profile-photo.jpg" alt="D S JAYA PRAKASH" class="member-profile-image" />
+                    <div class="member-info">
+                        <h3 class="member-name">D S JAYA PRAKASH</h3>
+                        <p class="member-role">MC MEMBER</p>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=primodesigns@rediffmail.com" target="_blank" class="member-email">
+                            <span class="gmail-icon">@</span>
+                            primodesigns@rediffmail.com
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <img src="profile-photo.jpg" alt="J BHEEM RAO" class="member-profile-image" />
+                    <div class="member-info">
+                        <h3 class="member-name">J BHEEM RAO</h3>
+                        <p class="member-role">MC MEMBER</p>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@kengineers.co.in" target="_blank" class="member-email">
+                            <span class="gmail-icon">@</span>
+                            info@kengineers.co.in
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <img src="profile-photo.jpg" alt="Ch. D V PRASAD" class="member-profile-image" />
+                    <div class="member-info">
+                        <h3 class="member-name">Ch. D V PRASAD</h3>
+                        <p class="member-role">MC MEMBER</p>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=chehprasad@rediffmail.com" target="_blank" class="member-email">
+                            <span class="gmail-icon">@</span>
+                            chehprasad@rediffmail.com
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <img src="profile-photo.jpg" alt="Ch. PURUSHOTHAM" class="member-profile-image" />
+                    <div class="member-info">
+                        <h3 class="member-name">Ch. PURUSHOTHAM</h3>
+                        <p class="member-role">MC MEMBER</p>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=chpm60@gmail.com" target="_blank" class="member-email">
+                            <span class="gmail-icon">@</span>
+                            chpm60@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- EVENTS & CALENDAR SCREEN -->
+        <div id="eventsCalendarScreen" class="screen" style="display: none;">
+            <div class="screen-header">
+                <button class="back-button" onclick="showHome()">←</button>
+                <h2 class="screen-title">Events & Calendar</h2>
+            </div>
+            
+            <!-- Calendar Section -->
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button class="nav-btn" onclick="previousMonth()">‹</button>
+                    <h3 class="month-year">January 2026</h3>
+                    <button class="nav-btn" onclick="nextMonth()">›</button>
+                </div>
+                <div class="calendar-grid">
+                    <div class="day-header">Sun</div>
+                    <div class="day-header">Mon</div>
+                    <div class="day-header">Tue</div>
+                    <div class="day-header">Wed</div>
+                    <div class="day-header">Thu</div>
+                    <div class="day-header">Fri</div>
+                    <div class="day-header">Sat</div>
+                    
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day">1</div>
+                    <div class="calendar-day">2</div>
+                    <div class="calendar-day">3</div>
+                    <div class="calendar-day">4</div>
+                    <div class="calendar-day">5</div>
+                    <div class="calendar-day">6</div>
+                    <div class="calendar-day">7</div>
+                    <div class="calendar-day">8</div>
+                    <div class="calendar-day">9</div>
+                    <div class="calendar-day">10</div>
+                    <div class="calendar-day">11</div>
+                    <div class="calendar-day">12</div>
+                    <div class="calendar-day">13</div>
+                    <div class="calendar-day event-day" title="Sankranthi">14</div>
+                    <div class="calendar-day">15</div>
+                    <div class="calendar-day">16</div>
+                    <div class="calendar-day">17</div>
+                    <div class="calendar-day">18</div>
+                    <div class="calendar-day">19</div>
+                    <div class="calendar-day">20</div>
+                    <div class="calendar-day">21</div>
+                    <div class="calendar-day">22</div>
+                    <div class="calendar-day">23</div>
+                    <div class="calendar-day">24</div>
+                    <div class="calendar-day">25</div>
+                    <div class="calendar-day event-day" title="Republic Day">26</div>
+                    <div class="calendar-day">27</div>
+                    <div class="calendar-day">28</div>
+                    <div class="calendar-day">29</div>
+                    <div class="calendar-day event-day" title="ACCE Technical Meet">30</div>
+                    <div class="calendar-day">31</div>
+                </div>
+                
+                <!-- Events List Below Calendar -->
+                <div class="events-list">
+                    <h4 class="events-list-title">Events & Festivals</h4>
+                    <div class="event-item">
+                        <span class="event-name">Sankranthi - 14</span>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-name">Republic Day - 26</span>
+                    </div>
+                    <div class="event-item">
+                        <span class="event-name">ACCE Technical Meet - 30</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Upcoming Events Section -->
+            <div class="upcoming-events-section">
+                <h3 class="section-title">Upcoming Events</h3>
+                <div class="events-container">
+                    <div class="event-card">
+                        <h3 class="event-title">Annual Technical Conference</h3>
+                        <p class="event-date">March 15, 2026</p>
+                        <p class="event-description">Join us for our flagship technical conference featuring industry experts and latest developments in civil engineering.</p>
+                    </div>
+                    
+                    <div class="event-card">
+                        <h3 class="event-title">Professional Development Workshop</h3>
+                        <p class="event-date">March 28, 2026</p>
+                        <p class="event-description">Enhance your professional skills with our comprehensive workshop on modern construction practices.</p>
+                    </div>
+                    
+                    <div class="event-card">
+                        <h3 class="event-title">Networking Mixer</h3>
+                        <p class="event-date">April 10, 2026</p>
+                        <p class="event-description">Connect with fellow professionals and expand your network in a relaxed evening setting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CONTACT & SUPPORT SCREEN -->
+        <div id="contactScreen" class="screen" style="display: none;">
+            <div class="screen-header">
+                <button class="back-button" onclick="showHome()">←</button>
+                <h2 class="screen-title">Contact & Support</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-section">
+                    <h3 class="contact-section-title">PRABHANJANA TECHNOLOGIES SOFTWARE SOLUTIONS</h3>
+                    <p class="contact-description">
+                        ACCE in web portal is developed and managed by Prabhanjana Technologies & Software Solutions.
+                    </p>
+                    <p class="contact-description">
+                        To Know more visit<br>
+                        www.prabhanjana.com
+                    </p>
+                </div>
+                
+                <div class="contact-section">
+                    <h3 class="contact-section-title">EMAIL US</h3>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label>Your Name (required)</label>
+                            <input type="text" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Email (required)</label>
+                            <input type="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Your Message</label>
+                            <textarea class="form-textarea" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="send-button">SEND</button>
+                    </form>
+                </div>
+                
+                <div class="contact-section">
+                    <h3 class="contact-section-title">CONTACT</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <strong>Address:</strong><br>
+                            Association of Consulting Civil Engineers (India), A-21, A Block, 2nd Floor, Brigade MM Industrial Complex<br>
+                            K.R. Road, Near Yediyur Circle,<br>
+                            Bangalore 560 070, INDIA.
+                        </div>
+                        <div class="contact-item">
+                            <strong>Phone:</strong> +91-080-26770365 / 66
+                        </div>
+                        <div class="contact-item">
+                            <strong>Email:</strong> <a href="mailto:info@acce.in" class="contact-link">info@acce.in</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Website:</strong> <a href="http://www.acce.in" class="contact-link">www.acce.in</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-section">
+                    <h3 class="contact-section-title">NEWSLETTER</h3>
+                    <p class="newsletter-description">
+                        Subscribe to our MailChimp newsletter and stay up to date with all events coming straight in your mailbox:
+                    </p>
+                    <div class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your email address">
+                        <button class="newsletter-button">→</button>
+                    </div>
+                    <p class="newsletter-note">* Personal data will be encrypted</p>
+                </div>
+                
+                <div class="contact-section">
+                    <h3 class="contact-section-title">USEFUL LINKS</h3>
+                    <ul class="useful-links">
+                        <li><a href="#" class="useful-link">General Information For Users</a></li>
+                        <li><a href="#" class="useful-link">BIS Code</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- EVENTS & NEWSLETTERS SCREEN -->
+        <div id="eventsNewslettersScreen" class="screen" style="display: none;">
+            <div class="screen-header">
+                <button class="back-button" onclick="showHome()">←</button>
+                <h2 class="screen-title">Events & Newsletters</h2>
+            </div>
+            
+            <!-- Sub Navigation -->
+            <div class="sub-nav">
+                <button class="sub-nav-btn active" onclick="showSubSection('pastEvents')">Events</button>
+                <button class="sub-nav-btn" onclick="showSubSection('webinars')">Webinars</button>
+                <button class="sub-nav-btn" onclick="showSubSection('newsletters')">Newsletters</button>
+            </div>
+            
+            <!-- Past Events Section -->
+            <div id="pastEventsSection" class="sub-section active">
+                <div class="events-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <div class="date-circle">📅</div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="event-badge">ACCE(I) Events</div>
+                            <div class="event-badge-type">Event</div>
+                            <h3 class="timeline-title">SPACE-2025</h3>
+                            <button class="read-more-btn" onclick="showEventDetails('space2025')">READ MORE</button>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <div class="date-circle">📅</div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="event-badge">ACCE(I) Events</div>
+                            <div class="event-badge-type">Event</div>
+                            <h3 class="timeline-title">RACE 2025</h3>
+                            <button class="read-more-btn" onclick="showEventDetails('race2025')">READ MORE</button>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <div class="date-circle">📅</div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="event-badge">ACCE(I) Events</div>
+                            <div class="event-badge-type">Event</div>
+                            <h3 class="timeline-title">REDECON 2025</h3>
+                            <button class="read-more-btn" onclick="showEventDetails('redecon2025')">READ MORE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Webinars Section -->
+            <div id="webinarsSection" class="sub-section">
+                <div class="table-wrapper">
+                    <div class="webinars-table">
+                        <div class="table-header">
+                            <div class="table-cell">No.</div>
+                            <div class="table-cell">Date</div>
+                            <div class="table-cell">Invitation</div>
+                            <div class="table-cell">Particulars</div>
+                            <div class="table-cell">Link to Watch Webinar</div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="table-cell">1</div>
+                            <div class="table-cell">27.04.2020</div>
+                            <div class="table-cell">
+                                <div class="invitation-card">📄</div>
+                            </div>
+                            <div class="table-cell">
+                                Ramco's Webinar in Association With ACCE(I) BANGALORE CENTRE about "How the Construction Industry is coping with challenges of covid 19 and What opportunities they see"
+                            </div>
+                            <div class="table-cell">
+                                <a href="#" class="webinar-link">https://youtu.be/s_QzochT88E</a>
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="table-cell">2</div>
+                            <div class="table-cell">1.05.2020</div>
+                            <div class="table-cell">
+                                <div class="invitation-card">📄</div>
+                            </div>
+                            <div class="table-cell">
+                                Ramco's webinar in Association With ACCE(I) BANGALORE CENTRE about "Proportioning Of Concrete Mixes From Durability Point View"
+                            </div>
+                            <div class="table-cell">
+                                <a href="#" class="webinar-link">https://youtu.be/99GfqNJWKBc</a>
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="table-cell">3</div>
+                            <div class="table-cell">02.05.2020</div>
+                            <div class="table-cell">
+                                <div class="invitation-card">📄</div>
+                            </div>
+                            <div class="table-cell">
+                                Ramco's webinar in Association With ACCE(I) BANGALORE CENTRE about "Panel discussion on Ready mix concrete for quality Construction"
+                            </div>
+                            <div class="table-cell">
+                                <a href="#" class="webinar-link">https://youtu.be/z-oEJpZZQTg</a>
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="table-cell">4</div>
+                            <div class="table-cell">02.05.2020</div>
+                            <div class="table-cell">
+                                <div class="invitation-card">📄</div>
+                            </div>
+                            <div class="table-cell">
+                                Ramco's webinar in Association With ACCE(I) BANGALORE CENTRE about "Best Practices For Modern Construction"
+                            </div>
+                            <div class="table-cell">
+                                <a href="#" class="webinar-link">https://youtu.be/Qao6nImtAQs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Newsletters Section -->
+            <div id="newslettersSection" class="sub-section">
+                <div class="newsletters-table">
+                    <div class="table-header">
+                        <div class="table-cell">S.No</div>
+                        <div class="table-cell">Date</div>
+                        <div class="table-cell">Newsletter Title</div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">1</div>
+                        <div class="table-cell">Aug-2019</div>
+                        <div class="table-cell">
+                            <a href="#" class="newsletter-link">Know Your Team</a>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">2</div>
+                        <div class="table-cell">Sept-2019</div>
+                        <div class="table-cell">
+                            <a href="#" class="newsletter-link">Connect and collaborate for a better tomorrow</a>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">3</div>
+                        <div class="table-cell">Oct-2019</div>
+                        <div class="table-cell">
+                            <a href="#" class="newsletter-link">Roots of Building Features by Forensic Civil Engineering</a>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">4</div>
+                        <div class="table-cell">Nov-2019</div>
+                        <div class="table-cell">
+                            <a href="#" class="newsletter-link">BRING THE CIVIL ENGINEERING COMMUNITY TOGETHER</a>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">5</div>
+                        <div class="table-cell">Dec-2019</div>
+                        <div class="table-cell">
+                            <a href="#" class="newsletter-link">ACCE (INDIA)'S LEADERSHIP AND ORIENTATION PROGRAM</a>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">6</div>
+                        <div class="table-cell">Jan-2020</div>
+                        <div class="table-cell">
+                            <a href="#" class="newsletter-link">BRING THE CIVIL ENGINEERING COMMUNITY TOGETHER</a>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">7</div>
+                        <div class="table-cell">Feb-2020</div>
+                        <div class="table-cell">
+                            <a href="#" class="newsletter-link">TRUST, INTEGRITY AND MEMBERSHIP</a>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">8</div>
+                        <div class="table-cell">March-2020</div>
+                        <div class="table-cell">
+                            <a href="#" class="newsletter-link">STAY HOME, STAY SAFE !!!</a>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">9</div>
+                        <div class="table-cell">May-2020</div>
+                        <div class="table-cell">
+                            <a href="#" class="newsletter-link">ENGINEERS BILL, ARCHITECTS ACT 1972, ENGINEERS CONCERNS</a>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">10</div>
+                        <div class="table-cell">Nov-2020</div>
+                        <div class="table-cell">
+                            <a href="#" class="newsletter-link">ACCE(I) Newsletter Nov-2020</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- EVENT DETAILS MODAL -->
+        <div id="eventDetailsModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Event Details</h3>
+                    <button class="close-btn" onclick="closeEventDetails()">×</button>
+                </div>
+                <div class="modal-body">
+                    <div id="modalContent"></div>
+                </div>
+            </div>
+        </div>
+        <div id="membershipScreen" class="screen" style="display: none;">
+            <div class="screen-header">
+                <button class="back-button" onclick="showHome()">←</button>
+                <h2 class="screen-title">Membership Fees</h2>
+            </div>
+            <div class="membership-container">
+                <div class="membership-card">
+                    <h3 class="membership-type">Students</h3>
+                    <div class="fee-amount">Rs 0.00</div>
+                    <p class="fee-details">Subscription Fees</p>
+                    <p class="fee-annual">Rs. 500.00 Annual</p>
+                    <p class="fee-note">Amount to be paid: Rs. 500.00</p>
+                    <button class="download-btn">Download Form</button>
+                </div>
+                
+                <div class="membership-card">
+                    <h3 class="membership-type">Associate</h3>
+                    <div class="fee-amount">Rs 1000.00</div>
+                    <p class="fee-details">Subscription Fees</p>
+                    <p class="fee-annual">Rs. 1000.00 Annual</p>
+                    <p class="fee-note">Amount to be paid: Rs 2000.00 + 18% GST</p>
+                    <button class="download-btn">Download Form</button>
+                </div>
+                
+                <div class="membership-card">
+                    <h3 class="membership-type">Organization / Educational Institute</h3>
+                    <div class="fee-amount">Rs 1000.00</div>
+                    <p class="fee-details">Subscription Fees</p>
+                    <p class="fee-annual">Rs. 5000.00 Annual</p>
+                    <p class="fee-note">Amount to be paid: Rs. 6000.00 + 18% GST</p>
+                    <button class="download-btn">Download Form</button>
+                </div>
+                
+                <div class="membership-card">
+                    <h3 class="membership-type">Life</h3>
+                    <div class="fee-amount">Rs 1000.00</div>
+                    <p class="fee-details">Subscription Fees</p>
+                    <p class="fee-annual">Rs. 8000.00 Annual</p>
+                    <p class="fee-note">Amount to be paid: Rs. 9000.00 + 18% GST</p>
+                    <button class="download-btn">Download Form</button>
+                </div>
+                
+                <div class="membership-card">
+                    <h3 class="membership-type">Organisation</h3>
+                    <div class="fee-amount">Rs 1000.00</div>
+                    <p class="fee-details">Subscription Fees</p>
+                    <p class="fee-annual">Rs. 5000.00 Annual</p>
+                    <p class="fee-note">Amount to be paid: Rs 6000.00 + 18% GST</p>
+                    <button class="download-btn">Download Form</button>
+                </div>
+                
+                <div class="membership-card">
+                    <h3 class="membership-type">Organisation Life</h3>
+                    <div class="fee-amount">Rs 1000.00</div>
+                    <p class="fee-details">Subscription Fees</p>
+                    <p class="fee-annual">Rs. 99000.00 Annual</p>
+                    <p class="fee-note">Amount to be paid: Rs. 100000.00 + 18% GST</p>
+                    <button class="download-btn">Download Form</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- USER ACCESS SCREEN (Combined Login & Signup) -->
+        <div id="userLoginScreen" class="screen" style="display: none;">
+            <div class="screen-header">
+                <button class="back-button" onclick="showPlatformOptions()">←</button>
+                <h2 class="screen-title">User Access</h2>
+            </div>
+            
+            <!-- Tab Navigation -->
+            <div class="sub-nav" style="max-width: 400px; margin: 20px auto;">
+                <button class="sub-nav-btn active" onclick="showLoginTab()">Login</button>
+                <button class="sub-nav-btn" onclick="showSignupTab()">Sign Up</button>
+            </div>
+            
+            <!-- Login Form -->
+            <div id="loginTab" class="login-form-container">
+                <div class="login-form-card">
+                    <h3 class="form-title">Login to Your Account</h3>
+                    <form class="login-form" onsubmit="handleUserLogin(event)">
+                        <div class="form-group">
+                            <label for="userMobile">Mobile Number</label>
+                            <input type="tel" id="userMobile" class="form-input" placeholder="Enter 10-digit mobile number" required>
+                        </div>
+                        <button type="submit" class="login-submit-btn">Send OTP</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Signup Form -->
+            <div id="signupTab" class="login-form-container" style="display: none;">
+                <div class="login-form-card">
+                    <h3 class="form-title">Create New Account</h3>
+                    <form class="login-form" onsubmit="handleSignup(event)">
+                        <div class="form-group">
+                            <label for="signupName">Full Name</label>
+                            <input type="text" id="signupName" class="form-input" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupMobile">Mobile Number</label>
+                            <input type="tel" id="signupMobile" class="form-input" placeholder="Enter 10-digit mobile number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupEmail">Email Address</label>
+                            <input type="email" id="signupEmail" class="form-input" placeholder="Enter your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupCompany">Company/Organization</label>
+                            <input type="text" id="signupCompany" class="form-input" placeholder="Enter your company name">
+                        </div>
+                        <button type="submit" class="login-submit-btn">Create Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- BOARD MEMBER LOGIN SCREEN -->
+        <div id="boardMemberLoginScreen" class="screen" style="display: none;">
+            <div class="screen-header">
+                <button class="back-button" onclick="showPlatformOptions()">←</button>
+                <h2 class="screen-title">Board Member Login</h2>
+            </div>
+            <div class="login-form-container">
+                <div class="login-form-card">
+                    <h3 class="form-title">Enter Board Member Code</h3>
+                    <form class="login-form" onsubmit="handleBoardMemberLogin(event)">
+                        <div class="form-group">
+                            <label for="boardMemberCode">Board Member Code</label>
+                            <input type="text" id="boardMemberCode" class="form-input" placeholder="Enter your board member code" required>
+                            <p class="helper-text">OTP will be sent to the mobile number registered with this code.</p>
+                        </div>
+                        <button type="submit" class="login-submit-btn">Send OTP</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- OTP VERIFICATION SCREEN -->
+        <div id="otpScreen" class="screen" style="display: none;">
+            <div class="screen-header">
+                <button class="back-button" onclick="goBackFromOTP()">←</button>
+                <h2 class="screen-title">Verify OTP</h2>
+            </div>
+            <div class="login-form-container">
+                <div class="login-form-card">
+                    <h3 class="form-title">Enter OTP</h3>
+                    <p class="otp-message" id="otpMessage">OTP sent to your mobile number</p>
+                    <form class="login-form" onsubmit="handleOTPVerification(event)">
+                        <div class="form-group">
+                            <label for="otpInput">6-Digit OTP</label>
+                            <input type="text" id="otpInput" class="form-input otp-input" placeholder="Enter 6-digit OTP" maxlength="6" required>
+                        </div>
+                        <button type="submit" class="login-submit-btn">Verify OTP</button>
+                        <button type="button" class="resend-btn" onclick="resendOTP()">Resend OTP</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SIGNUP SCREEN -->
+        
+        <!-- PLATFORM OPTIONS SCREEN -->
+        <div id="platformOptionsScreen" class="screen" style="display: none;">
+            <div class="screen-header">
+                <button class="back-button" onclick="showWelcomeScreen()">←</button>
+                <h2 class="screen-title">Choose Your Access</h2>
+            </div>
+            <div class="folder-container">
+                <div class="single-folder-wrapper">
+                    <div class="folder single-folder" id="mainFolder" onclick="toggleMainFolder()">
+                        <div class="folder__back">
+                            <!-- Paper 1 - User Access (Login & Signup) -->
+                            <div class="paper paper-option" id="paper1" onclick="selectOption(event, 'user')">
+                                <div class="paper-content">
+                                    <div class="paper-icon">👤</div>
+                                    <div class="paper-title">User Access</div>
+                                    <div class="paper-desc">Login & Signup</div>
+                                </div>
+                            </div>
+                            <!-- Paper 2 - Board Member -->
+                            <div class="paper paper-option" id="paper2" onclick="selectOption(event, 'board')">
+                                <div class="paper-content">
+                                    <div class="paper-icon">👔</div>
+                                    <div class="paper-title">Board Member</div>
+                                    <div class="paper-desc">Member Access</div>
+                                </div>
+                            </div>
+                            <div class="folder__front"></div>
+                            <div class="folder__front right"></div>
+                        </div>
+                    </div>
+                    <div class="folder-main-label">Access Options</div>
+                    <div class="folder-main-description">Click to explore access methods</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- EDIT DASHBOARD SCREEN -->
+        <div id="editDashboardScreen" class="screen" style="display: none;">
+            <div class="screen-header">
+                <button class="back-button" onclick="showHome()">←</button>
+                <h2 class="screen-title">Edit Dashboard</h2>
+            </div>
+            <div class="edit-dashboard">
+                <p class="page-subtitle">Manage and update platform content</p>
+                <div class="edit-sections">
+                    <div class="edit-section-card" onclick="showCalendarEdit()">
+                        <div class="edit-section-icon"></div>
+                        <h3 class="edit-section-title">Calendar Management</h3>
+                        <p class="edit-section-description">Add, edit, or remove events from the calendar. Manage festivals and important dates.</p>
+                    </div>
+                    
+                    <div class="edit-section-card" onclick="showEventsEdit()">
+                        <div class="edit-section-icon"></div>
+                        <h3 class="edit-section-title">Upcoming Events</h3>
+                        <p class="edit-section-description">Create and manage upcoming events, webinars, and newsletters.</p>
+                    </div>
+                    
+                    <div class="edit-section-card" onclick="showMembershipEdit()">
+                        <div class="edit-section-icon"></div>
+                        <h3 class="edit-section-title">Membership Plans</h3>
+                        <p class="edit-section-description">Update membership types, fees, and subscription details.</p>
+                    </div>
+                    
+                    <div class="edit-section-card" onclick="showAboutEdit()">
+                        <div class="edit-section-icon"></div>
+                        <h3 class="edit-section-title">About Page</h3>
+                        <p class="edit-section-description">Edit vision, mission, core values, and activities content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CALENDAR EDIT SCREEN -->
+        <div id="calendarEditScreen" class="screen" style="display: none;">
+            <div class="screen-header">
+                <button class="back-button" onclick="showEditDashboard()">←</button>
+                <h2 class="screen-title">Calendar Management</h2>
+            </div>
+            <div class="edit-form-container">
+                <div class="edit-form-section">
+                    <h3>Add New Event</h3>
+                    <form onsubmit="addCalendarEvent(event)">
+                        <div class="form-row">
+                            <div class="edit-form-group">
+                                <label for="eventName">Event Name</label>
+                                <input type="text" id="eventName" class="edit-form-input" placeholder="Enter event name" required>
+                            </div>
+                            <div class="edit-form-group">
+                                <label for="eventDate">Event Date</label>
+                                <input type="date" id="eventDate" class="edit-form-input" required>
+                            </div>
+                        </div>
+                        <div class="form-row full-width">
+                            <div class="edit-form-group">
+                                <label for="eventDescription">Description (Optional)</label>
+                                <textarea id="eventDescription" class="edit-form-textarea" placeholder="Enter event description"></textarea>
+                            </div>
+                        </div>
+                        <div class="edit-actions">
+                            <button type="submit" class="save-btn">Add Event</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="edit-form-section">
+                    <h3>Current Calendar Events</h3>
+                    <div id="calendarEventsList">
+                        <div class="event-list-item">
+                            <div class="event-item-info">
+                                <div class="event-item-title">Sankranthi</div>
+                                <div class="event-item-date">January 14, 2026</div>
+                            </div>
+                            <div class="event-item-actions">
+                                <button class="edit-btn" onclick="editCalendarEvent('sankranthi')">Edit</button>
+                                <button class="delete-btn" onclick="deleteCalendarEvent('sankranthi')">Delete</button>
+                            </div>
+                        </div>
+                        
+                        <div class="event-list-item">
+                            <div class="event-item-info">
+                                <div class="event-item-title">Republic Day</div>
+                                <div class="event-item-date">January 26, 2026</div>
+                            </div>
+                            <div class="event-item-actions">
+                                <button class="edit-btn" onclick="editCalendarEvent('republic')">Edit</button>
+                                <button class="delete-btn" onclick="deleteCalendarEvent('republic')">Delete</button>
+                            </div>
+                        </div>
+                        
+                        <div class="event-list-item">
+                            <div class="event-item-info">
+                                <div class="event-item-title">ACCE Technical Meet</div>
+                                <div class="event-item-date">January 30, 2026</div>
+                            </div>
+                            <div class="event-item-actions">
+                                <button class="edit-btn" onclick="editCalendarEvent('technical')">Edit</button>
+                                <button class="delete-btn" onclick="deleteCalendarEvent('technical')">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- EVENTS EDIT SCREEN -->
+        <div id="eventsEditScreen" class="screen" style="display: none;">
+            <div class="screen-header">
+                <button class="back-button" onclick="showEditDashboard()">←</button>
+                <h2 class="screen-title">Events Management</h2>
+            </div>
+            <div class="edit-form-container">
+                <!-- Upcoming Events Section -->
+                <div class="edit-form-section">
+                    <h3>Add New Upcoming Event</h3>
+                    <form onsubmit="addUpcomingEvent(event)">
+                        <div class="form-row">
+                            <div class="edit-form-group">
+                                <label for="upcomingEventTitle">Event Title</label>
+                                <input type="text" id="upcomingEventTitle" class="edit-form-input" placeholder="Enter event title" required>
+                            </div>
+                            <div class="edit-form-group">
+                                <label for="upcomingEventDate">Event Date</label>
+                                <input type="date" id="upcomingEventDate" class="edit-form-input" required>
+                            </div>
+                        </div>
+                        <div class="form-row full-width">
+                            <div class="edit-form-group">
+                                <label for="upcomingEventDescription">Event Description</label>
+                                <textarea id="upcomingEventDescription" class="edit-form-textarea" placeholder="Enter detailed event description" required></textarea>
+                            </div>
+                        </div>
+                        <div class="edit-actions">
+                            <button type="submit" class="save-btn">Add Event</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Current Upcoming Events -->
+                <div class="edit-form-section">
+                    <h3>Current Upcoming Events</h3>
+                    <div id="upcomingEventsList">
+                        <div class="event-list-item">
+                            <div class="event-item-info">
+                                <div class="event-item-title">Annual Technical Conference</div>
+                                <div class="event-item-date">March 15, 2026</div>
+                            </div>
+                            <div class="event-item-actions">
+                                <button class="edit-btn" onclick="editUpcomingEvent('conference')">Edit</button>
+                                <button class="delete-btn" onclick="deleteUpcomingEvent('conference')">Delete</button>
+                            </div>
+                        </div>
+                        
+                        <div class="event-list-item">
+                            <div class="event-item-info">
+                                <div class="event-item-title">Professional Development Workshop</div>
+                                <div class="event-item-date">March 28, 2026</div>
+                            </div>
+                            <div class="event-item-actions">
+                                <button class="edit-btn" onclick="editUpcomingEvent('workshop')">Edit</button>
+                                <button class="delete-btn" onclick="deleteUpcomingEvent('workshop')">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Webinars Section -->
+                <div class="edit-form-section">
+                    <h3>Add New Webinar</h3>
+                    <form onsubmit="addWebinar(event)">
+                        <div class="form-row">
+                            <div class="edit-form-group">
+                                <label for="webinarDate">Webinar Date</label>
+                                <input type="date" id="webinarDate" class="edit-form-input" required>
+                            </div>
+                            <div class="edit-form-group">
+                                <label for="webinarLink">Webinar Link</label>
+                                <input type="url" id="webinarLink" class="edit-form-input" placeholder="https://..." required>
+                            </div>
+                        </div>
+                        <div class="form-row full-width">
+                            <div class="edit-form-group">
+                                <label for="webinarTitle">Webinar Title</label>
+                                <textarea id="webinarTitle" class="edit-form-textarea" placeholder="Enter webinar title and description" required></textarea>
+                            </div>
+                        </div>
+                        <div class="edit-actions">
+                            <button type="submit" class="save-btn">Add Webinar</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Newsletters Section -->
+                <div class="edit-form-section">
+                    <h3>Add New Newsletter</h3>
+                    <form onsubmit="addNewsletter(event)">
+                        <div class="form-row">
+                            <div class="edit-form-group">
+                                <label for="newsletterDate">Newsletter Date</label>
+                                <input type="month" id="newsletterDate" class="edit-form-input" required>
+                            </div>
+                            <div class="edit-form-group">
+                                <label for="newsletterLink">Newsletter Link</label>
+                                <input type="url" id="newsletterLink" class="edit-form-input" placeholder="https://..." required>
+                            </div>
+                        </div>
+                        <div class="form-row full-width">
+                            <div class="edit-form-group">
+                                <label for="newsletterTitle">Newsletter Title</label>
+                                <input type="text" id="newsletterTitle" class="edit-form-input" placeholder="Enter newsletter title" required>
+                            </div>
+                        </div>
+                        <div class="edit-actions">
+                            <button type="submit" class="save-btn">Add Newsletter</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MEMBERSHIP EDIT SCREEN -->
+        <div id="membershipEditScreen" class="screen" style="display: none;">
+            <div class="screen-header">
+                <button class="back-button" onclick="showEditDashboard()">←</button>
+                <h2 class="screen-title">Membership Plans Management</h2>
+            </div>
+            <div class="edit-form-container">
+                <div class="edit-form-section">
+                    <h3>Add New Membership Plan</h3>
+                    <form onsubmit="addMembershipPlan(event)">
+                        <div class="form-row">
+                            <div class="edit-form-group">
+                                <label for="membershipType">Membership Type</label>
+                                <input type="text" id="membershipType" class="edit-form-input" placeholder="e.g., Premium" required>
+                            </div>
+                            <div class="edit-form-group">
+                                <label for="subscriptionFee">Subscription Fee (Rs)</label>
+                                <input type="number" id="subscriptionFee" class="edit-form-input" placeholder="0.00" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="edit-form-group">
+                                <label for="annualFee">Annual Fee (Rs)</label>
+                                <input type="number" id="annualFee" class="edit-form-input" placeholder="0.00" step="0.01" required>
+                            </div>
+                            <div class="edit-form-group">
+                                <label for="gstApplicable">GST Applicable</label>
+                                <select id="gstApplicable" class="edit-form-select" required>
+                                    <option value="">Select...</option>
+                                    <option value="yes">Yes (18%)</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row full-width">
+                            <div class="edit-form-group">
+                                <label for="membershipDescription">Description (Optional)</label>
+                                <textarea id="membershipDescription" class="edit-form-textarea" placeholder="Enter membership benefits and details"></textarea>
+                            </div>
+                        </div>
+                        <div class="edit-actions">
+                            <button type="submit" class="save-btn">Add Membership Plan</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="edit-form-section">
+                    <h3>Current Membership Plans</h3>
+                    <div id="membershipPlansList">
+                        <div class="event-list-item">
+                            <div class="event-item-info">
+                                <div class="event-item-title">Students - Rs 500.00 Annual</div>
+                                <div class="event-item-date">Subscription: Rs 0.00</div>
+                            </div>
+                            <div class="event-item-actions">
+                                <button class="edit-btn" onclick="editMembershipPlan('students')">Edit</button>
+                                <button class="delete-btn" onclick="deleteMembershipPlan('students')">Delete</button>
+                            </div>
+                        </div>
+                        
+                        <div class="event-list-item">
+                            <div class="event-item-info">
+                                <div class="event-item-title">Associate - Rs 1000.00 Annual</div>
+                                <div class="event-item-date">Subscription: Rs 1000.00 + 18% GST</div>
+                            </div>
+                            <div class="event-item-actions">
+                                <button class="edit-btn" onclick="editMembershipPlan('associate')">Edit</button>
+                                <button class="delete-btn" onclick="deleteMembershipPlan('associate')">Delete</button>
+                            </div>
+                        </div>
+                        
+                        <div class="event-list-item">
+                            <div class="event-item-info">
+                                <div class="event-item-title">Life - Rs 8000.00 Annual</div>
+                                <div class="event-item-date">Subscription: Rs 1000.00 + 18% GST</div>
+                            </div>
+                            <div class="event-item-actions">
+                                <button class="edit-btn" onclick="editMembershipPlan('life')">Edit</button>
+                                <button class="delete-btn" onclick="deleteMembershipPlan('life')">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ABOUT EDIT SCREEN -->
+        <div id="aboutEditScreen" class="screen" style="display: none;">
+            <div class="screen-header">
+                <button class="back-button" onclick="showEditDashboard()">←</button>
+                <h2 class="screen-title">About Page Management</h2>
+            </div>
+            <div class="edit-form-container">
+                <div class="edit-form-section">
+                    <h3>Vision Statement</h3>
+                    <form onsubmit="updateVision(event)">
+                        <div class="form-row full-width">
+                            <div class="edit-form-group">
+                                <label for="visionText">Vision Statement</label>
+                                <textarea id="visionText" class="edit-form-textarea" required>To be the premier professional association for consulting civil engineers, fostering excellence, innovation, and ethical practice in the field of civil engineering.</textarea>
+                            </div>
+                        </div>
+                        <div class="edit-actions">
+                            <button type="submit" class="save-btn">Update Vision</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="edit-form-section">
+                    <h3>Mission Statement</h3>
+                    <form onsubmit="updateMission(event)">
+                        <div class="form-row full-width">
+                            <div class="edit-form-group">
+                                <label for="missionText">Mission Statement</label>
+                                <textarea id="missionText" class="edit-form-textarea" required>Our mission is to advance the profession of consulting civil engineering through education, advocacy, and collaboration. We provide our members with resources, networking opportunities, and professional development to ensure the highest standards of practice.</textarea>
+                            </div>
+                        </div>
+                        <div class="edit-actions">
+                            <button type="submit" class="save-btn">Update Mission</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="edit-form-section">
+                    <h3>Core Values</h3>
+                    <form onsubmit="updateCoreValues(event)">
+                        <div class="form-row full-width">
+                            <div class="edit-form-group">
+                                <label for="coreValuesText">Core Values</label>
+                                <textarea id="coreValuesText" class="edit-form-textarea" required>Excellence • Integrity • Innovation • Collaboration • Professional Development • Ethical Practice • Community Service • Continuous Learning</textarea>
+                            </div>
+                        </div>
+                        <div class="edit-actions">
+                            <button type="submit" class="save-btn">Update Core Values</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="edit-form-section">
+                    <h3>Activities</h3>
+                    <form onsubmit="updateActivities(event)">
+                        <div class="form-row full-width">
+                            <div class="edit-form-group">
+                                <label for="activitiesText">Activities (One per line)</label>
+                                <textarea id="activitiesText" class="edit-form-textarea" placeholder="Enter each activity on a new line" required>Professional development workshops and seminars
+Technical conferences and symposiums
+Networking events and industry meetups
+Continuing education programs
+Professional certification courses
+Industry research and publications
+Mentorship programs for young engineers
+Community outreach and public service projects</textarea>
+                            </div>
+                        </div>
+                        <div class="edit-actions">
+                            <button type="submit" class="save-btn">Update Activities</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ABOUT SCREEN -->
+        <div id="aboutScreen" class="screen" style="display: none;">
+            <div class="screen-header">
+                <button class="back-button" onclick="showHome()">←</button>
+                <h2 class="screen-title">About ACCE</h2>
+            </div>
+            <div class="about-container">
+                <!-- Our Vision Section -->
+                <section class="content-section">
+                    <div class="section-content">
+                        <h2 class="section-title">Our Vision</h2>
+                        <p class="section-text">
+                            To foster ideals of profession, promote friendship, establish rules for professional 
+                            and ethical conduct and to develop social awareness and responsibility in the members.
+                        </p>
+                    </div>
+                </section>
+                
+                <!-- Vision Image -->
+                <div class="content-image">
+                    <img src="about_us_img5.jpg" alt="Our Vision - Professional Development" class="section-image" />
+                </div>
+                
+                <!-- Our Mission Section -->
+                <section class="content-section">
+                    <div class="section-content">
+                        <h2 class="section-title">Our Mission</h2>
+                        <div class="mission-grid">
+                            <div class="mission-column">
+                                <ul class="mission-list">
+                                    <li>To encourage and foster the ideals of the profession.</li>
+                                    <li>To hold conferences/meetings/seminars for dissemination of knowledge among the Civil Engineers in particular and society in general.</li>
+                                    <li>To promote friendship, establish rules for professional and ethical conduct and to develop social awareness and responsibility among the members.</li>
+                                    <li>To bring the latest technological advancements in the world to the members and prepare them to carry out futuristic designs with an eye on assurance of quality.</li>
+                                </ul>
+                            </div>
+                            <div class="mission-column">
+                                <ul class="mission-list">
+                                    <li>To facilitate access to technical papers, books and computer software.</li>
+                                    <li>To arrange lectures by distinguished Engineers / Professionals from India and abroad and conduct study tour of projects.</li>
+                                    <li>To act as spokesman for the Consultants to deal with the Government, Corporations and other agencies regarding policy matters.</li>
+                                    <li>To identify areas in which the Consultants can contribute to the betterment of the country like Rural Housing, Urban Development, Low Cost Housing, Infrastructure development, Economic and Safe Design and construction Practice, etc.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Mission Image -->
+                <div class="content-image">
+                    <img src="about_us_img4.jpg" alt="Our Mission - Professional Excellence" class="section-image" />
+                </div>
+                
+                <!-- Our Core Values Section -->
+                <section class="content-section">
+                    <div class="section-content">
+                        <h2 class="section-title">Our Core Values</h2>
+                        <p class="section-text core-values-text">
+                            <strong>As Nation Builders</strong>, We are endowed with creating a new era which is sustainable, 
+                            a new dawn where we value our limited natural resources and a new world order where our future 
+                            generations can breathe a sigh of relief.
+                        </p>
+                    </div>
+                </section>
+                
+                <!-- Our Activities Section -->
+                <section class="content-section">
+                    <div class="section-content">
+                        <h2 class="section-title">Our Activities</h2>
+                        <p class="section-text">
+                            ACCE (I) conducts regular activities in all its centers across the nation. Dissemination of 
+                            knowledge to its members generally happens through well organised & pre-scheduled programs 
+                            under different titles such as:
+                        </p>
+                        <ul class="activities-list">
+                            <li>Technical Evening talks.</li>
+                            <li>Workshops, Conferences, Conventions, Seminars and Symposia.</li>
+                            <li>Exhibitions pertaining to construction industry.</li>
+                            <li>Technical Visits.</li>
+                            <li>Annual convention focusing on the topic of National Interest.</li>
+                            <li>Family get together to foster better fellowship among the families of members.</li>
+                            <li>Placement Orientation Program, emphasising the Industry- Academia Interaction.</li>
+                            <li>Endowment talks to students emphasizing the topics of recent technology.</li>
+                            <li>Technical library facility to its members and student members.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showMainContent() {
+            hideAllScreens();
+            document.getElementById('welcomeSection').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+            document.getElementById('mainContent').classList.add('active');
+            // Show the 3-dot menu when entering the main platform
+            document.getElementById('menuContainer').style.display = 'block';
+        }
+        
+        function showFeature(feature) {
+            alert(`Navigating to ${feature} section...`);
+        }
+        
+        function toggleMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            menu.classList.toggle('show');
+        }
+        
+        // NEW NAVIGATION FUNCTIONS
+        function showHome() {
+            // Hide all screens
+            document.getElementById('boardScreen').style.display = 'none';
+            document.getElementById('eventsCalendarScreen').style.display = 'none';
+            document.getElementById('eventsNewslettersScreen').style.display = 'none';
+            document.getElementById('membershipScreen').style.display = 'none';
+            document.getElementById('contactScreen').style.display = 'none';
+            document.getElementById('aboutScreen').style.display = 'none';
+            document.getElementById('eventDetailsModal').style.display = 'none';
+            document.getElementById('editDashboardScreen').style.display = 'none';
+            document.getElementById('calendarEditScreen').style.display = 'none';
+            document.getElementById('eventsEditScreen').style.display = 'none';
+            document.getElementById('membershipEditScreen').style.display = 'none';
+            document.getElementById('aboutEditScreen').style.display = 'none';
+            hideAllLoginScreens();
+            
+            // Hide welcome section and show main content directly
+            document.getElementById('welcomeSection').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+            document.getElementById('mainContent').classList.add('active');
+            
+            // Keep the menu visible when returning to home from other screens
+            document.getElementById('menuContainer').style.display = 'block';
+        }
+        
+        function showAbout() {
+            document.getElementById('welcomeSection').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('boardScreen').style.display = 'none';
+            document.getElementById('eventsCalendarScreen').style.display = 'none';
+            document.getElementById('eventsNewslettersScreen').style.display = 'none';
+            document.getElementById('membershipScreen').style.display = 'none';
+            document.getElementById('contactScreen').style.display = 'none';
+            document.getElementById('aboutScreen').style.display = 'block';
+            document.getElementById('dropdownMenu').classList.remove('show');
+            // Hide 3-dot menu on sub-pages
+            document.getElementById('menuContainer').style.display = 'none';
+        }
+        
+        // LOGIN FLOW FUNCTIONS
+        let currentUserType = 'public'; // 'public', 'user', 'boardMember'
+        let previousScreen = 'welcome';
+        
+        function hideAllScreens() {
+            document.getElementById('welcomeSection').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('boardScreen').style.display = 'none';
+            document.getElementById('eventsCalendarScreen').style.display = 'none';
+            document.getElementById('eventsNewslettersScreen').style.display = 'none';
+            document.getElementById('membershipScreen').style.display = 'none';
+            document.getElementById('contactScreen').style.display = 'none';
+            document.getElementById('eventDetailsModal').style.display = 'none';
+            document.getElementById('editDashboardScreen').style.display = 'none';
+            document.getElementById('calendarEditScreen').style.display = 'none';
+            document.getElementById('eventsEditScreen').style.display = 'none';
+            document.getElementById('membershipEditScreen').style.display = 'none';
+            document.getElementById('aboutEditScreen').style.display = 'none';
+            hideAllLoginScreens();
+        }
+        
+        function hideAllLoginScreens() {
+            document.getElementById('userLoginScreen').style.display = 'none';
+            document.getElementById('boardMemberLoginScreen').style.display = 'none';
+            document.getElementById('otpScreen').style.display = 'none';
+            document.getElementById('platformOptionsScreen').style.display = 'none';
+        }
+        
+        function showPlatformOptions() {
+            hideAllScreens();
+            document.getElementById('platformOptionsScreen').style.display = 'block';
+            document.getElementById('menuContainer').style.display = 'none';
+        }
+        
+        function showWelcomeScreen() {
+            hideAllScreens();
+            document.getElementById('welcomeSection').style.display = 'block';
+            document.getElementById('menuContainer').style.display = 'none';
+        }
+        
+        function showLoginSelection() {
+            hideAllScreens();
+            document.getElementById('loginSelectionScreen').style.display = 'block';
+            document.getElementById('menuContainer').style.display = 'block';
+            document.getElementById('dropdownMenu').classList.remove('show');
+            
+            // Remember where we came from
+            previousScreen = 'platformOptions';
+        }
+        
+        function showWelcomeOrHome() {
+            if (previousScreen === 'welcome') {
+                showWelcomeScreen();
+            } else if (previousScreen === 'platformOptions') {
+                showPlatformOptions();
+            } else {
+                showHome();
+            }
+        }
+        
+        function showUserLogin() {
+            hideAllScreens();
+            document.getElementById('userLoginScreen').style.display = 'block';
+            document.getElementById('menuContainer').style.display = 'block';
+        }
+        
+        function showBoardMemberLogin() {
+            hideAllScreens();
+            document.getElementById('boardMemberLoginScreen').style.display = 'block';
+            document.getElementById('menuContainer').style.display = 'block';
+        }
+        
+        function handleUserLogin(event) {
+            event.preventDefault();
+            const mobile = document.getElementById('userMobile').value;
+            
+            if (mobile.length !== 10) {
+                alert('Please enter a valid 10-digit mobile number');
+                return;
+            }
+            
+            // Mock OTP sending
+            currentUserType = 'user';
+            document.getElementById('otpMessage').textContent = `OTP sent to ${mobile}`;
+            hideAllScreens();
+            document.getElementById('otpScreen').style.display = 'block';
+        }
+        
+        function handleBoardMemberLogin(event) {
+            event.preventDefault();
+            const code = document.getElementById('boardMemberCode').value;
+            
+            if (code.length < 3) {
+                alert('Please enter a valid board member code');
+                return;
+            }
+            
+            // Mock OTP sending
+            currentUserType = 'boardMember';
+            document.getElementById('otpMessage').textContent = `OTP sent to registered mobile number for code: ${code}`;
+            hideAllScreens();
+            document.getElementById('otpScreen').style.display = 'block';
+        }
+        
+        function handleOTPVerification(event) {
+            event.preventDefault();
+            const otp = document.getElementById('otpInput').value;
+            
+            if (otp.length !== 6) {
+                alert('Please enter a valid 6-digit OTP');
+                return;
+            }
+            
+            // Mock OTP verification (accept any 6-digit number)
+            if (otp === '123456' || otp.length === 6) {
+                // Update UI based on user type
+                updateUIForUserType();
+                
+                // Redirect to dashboard
+                showHome();
+                alert(`Login successful! Welcome ${currentUserType === 'boardMember' ? 'Board Member' : 'User'}`);
+            } else {
+                alert('Invalid OTP. Please try again.');
+            }
+        }
+        
+        function handleSignup(event) {
+            event.preventDefault();
+            const name = document.getElementById('signupName').value;
+            const mobile = document.getElementById('signupMobile').value;
+            const email = document.getElementById('signupEmail').value;
+            const company = document.getElementById('signupCompany').value;
+            
+            if (mobile.length !== 10) {
+                alert('Please enter a valid 10-digit mobile number');
+                return;
+            }
+            
+            // Mock signup process
+            alert(`Account created successfully for ${name}! Please switch to Login tab to continue.`);
+            showLoginTab();
+        }
+        
+        function goBackFromOTP() {
+            if (currentUserType === 'user') {
+                showUserLogin();
+            } else if (currentUserType === 'boardMember') {
+                showBoardMemberLogin();
+            } else {
+                showPlatformOptions();
+            }
+        }
+        
+        function resendOTP() {
+            alert('OTP resent successfully!');
+        }
+        
+        function updateUIForUserType() {
+            const editOption = document.getElementById('editOption');
+            
+            if (currentUserType === 'boardMember') {
+                // Show edit option for board members in bubble menu
+                const editBubbleOption = document.getElementById('editBubbleOption');
+                if (editBubbleOption) {
+                    editBubbleOption.style.display = 'block';
+                }
+            } else {
+                // Hide edit option for users and public
+                const editBubbleOption = document.getElementById('editBubbleOption');
+                if (editBubbleOption) {
+                    editBubbleOption.style.display = 'none';
+                }
+            }
+        }
+        
+        function showEditDisabled() {
+            // Do nothing - this is disabled
+            return false;
+        }
+        
+        // Show edit dashboard (only for board members)
+        function showEditDashboard() {
+            hideAllScreens();
+            document.getElementById('editDashboardScreen').style.display = 'block';
+            document.getElementById('menuContainer').style.display = 'none';
+            closeMenu();
+        }
+        
+        // Calendar Edit Functions
+        function showCalendarEdit() {
+            hideAllScreens();
+            document.getElementById('calendarEditScreen').style.display = 'block';
+            document.getElementById('menuContainer').style.display = 'none';
+        }
+        
+        function addCalendarEvent(event) {
+            event.preventDefault();
+            const eventName = document.getElementById('eventName').value;
+            const eventDate = document.getElementById('eventDate').value;
+            const eventDescription = document.getElementById('eventDescription').value;
+            
+            // Create new event item
+            const eventsList = document.getElementById('calendarEventsList');
+            const newEventItem = document.createElement('div');
+            newEventItem.className = 'event-list-item';
+            newEventItem.innerHTML = `
+                <div class="event-item-info">
+                    <div class="event-item-title">${eventName}</div>
+                    <div class="event-item-date">${new Date(eventDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+                </div>
+                <div class="event-item-actions">
+                    <button class="edit-btn" onclick="editCalendarEvent('${eventName.toLowerCase().replace(/\s+/g, '')}')">Edit</button>
+                    <button class="delete-btn" onclick="deleteCalendarEvent('${eventName.toLowerCase().replace(/\s+/g, '')}')">Delete</button>
+                </div>
+            `;
+            eventsList.appendChild(newEventItem);
+            
+            // Reset form
+            document.getElementById('eventName').value = '';
+            document.getElementById('eventDate').value = '';
+            document.getElementById('eventDescription').value = '';
+            
+            alert('Calendar event added successfully!');
+        }
+        
+        function editCalendarEvent(eventId) {
+            alert(`Edit functionality for ${eventId} will be implemented`);
+        }
+        
+        function deleteCalendarEvent(eventId) {
+            if (confirm('Are you sure you want to delete this calendar event?')) {
+                alert(`Calendar event ${eventId} deleted successfully!`);
+                // In real implementation, remove the event from DOM
+            }
+        }
+        
+        // Events Edit Functions
+        function showEventsEdit() {
+            hideAllScreens();
+            document.getElementById('eventsEditScreen').style.display = 'block';
+            document.getElementById('menuContainer').style.display = 'none';
+        }
+        
+        function addUpcomingEvent(event) {
+            event.preventDefault();
+            const title = document.getElementById('upcomingEventTitle').value;
+            const date = document.getElementById('upcomingEventDate').value;
+            const description = document.getElementById('upcomingEventDescription').value;
+            
+            // Create new event item
+            const eventsList = document.getElementById('upcomingEventsList');
+            const newEventItem = document.createElement('div');
+            newEventItem.className = 'event-list-item';
+            newEventItem.innerHTML = `
+                <div class="event-item-info">
+                    <div class="event-item-title">${title}</div>
+                    <div class="event-item-date">${new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+                </div>
+                <div class="event-item-actions">
+                    <button class="edit-btn" onclick="editUpcomingEvent('${title.toLowerCase().replace(/\s+/g, '')}')">Edit</button>
+                    <button class="delete-btn" onclick="deleteUpcomingEvent('${title.toLowerCase().replace(/\s+/g, '')}')">Delete</button>
+                </div>
+            `;
+            eventsList.appendChild(newEventItem);
+            
+            // Reset form
+            document.getElementById('upcomingEventTitle').value = '';
+            document.getElementById('upcomingEventDate').value = '';
+            document.getElementById('upcomingEventDescription').value = '';
+            
+            alert('Upcoming event added successfully!');
+        }
+        
+        function editUpcomingEvent(eventId) {
+            alert(`Edit functionality for ${eventId} will be implemented`);
+        }
+        
+        function deleteUpcomingEvent(eventId) {
+            if (confirm('Are you sure you want to delete this upcoming event?')) {
+                alert(`Upcoming event ${eventId} deleted successfully!`);
+            }
+        }
+        
+        function addWebinar(event) {
+            event.preventDefault();
+            const date = document.getElementById('webinarDate').value;
+            const link = document.getElementById('webinarLink').value;
+            const title = document.getElementById('webinarTitle').value;
+            
+            alert('Webinar added successfully!');
+            
+            // Reset form
+            document.getElementById('webinarDate').value = '';
+            document.getElementById('webinarLink').value = '';
+            document.getElementById('webinarTitle').value = '';
+        }
+        
+        function addNewsletter(event) {
+            event.preventDefault();
+            const date = document.getElementById('newsletterDate').value;
+            const link = document.getElementById('newsletterLink').value;
+            const title = document.getElementById('newsletterTitle').value;
+            
+            alert('Newsletter added successfully!');
+            
+            // Reset form
+            document.getElementById('newsletterDate').value = '';
+            document.getElementById('newsletterLink').value = '';
+            document.getElementById('newsletterTitle').value = '';
+        }
+        
+        // Membership Edit Functions
+        function showMembershipEdit() {
+            hideAllScreens();
+            document.getElementById('membershipEditScreen').style.display = 'block';
+            document.getElementById('menuContainer').style.display = 'none';
+        }
+        
+        function addMembershipPlan(event) {
+            event.preventDefault();
+            const type = document.getElementById('membershipType').value;
+            const subscriptionFee = document.getElementById('subscriptionFee').value;
+            const annualFee = document.getElementById('annualFee').value;
+            const gst = document.getElementById('gstApplicable').value;
+            const description = document.getElementById('membershipDescription').value;
+            
+            // Create new membership item
+            const plansList = document.getElementById('membershipPlansList');
+            const newPlanItem = document.createElement('div');
+            newPlanItem.className = 'event-list-item';
+            const gstText = gst === 'yes' ? ' + 18% GST' : '';
+            newPlanItem.innerHTML = `
+                <div class="event-item-info">
+                    <div class="event-item-title">${type} - Rs ${annualFee} Annual</div>
+                    <div class="event-item-date">Subscription: Rs ${subscriptionFee}${gstText}</div>
+                </div>
+                <div class="event-item-actions">
+                    <button class="edit-btn" onclick="editMembershipPlan('${type.toLowerCase()}')">Edit</button>
+                    <button class="delete-btn" onclick="deleteMembershipPlan('${type.toLowerCase()}')">Delete</button>
+                </div>
+            `;
+            plansList.appendChild(newPlanItem);
+            
+            // Reset form
+            document.getElementById('membershipType').value = '';
+            document.getElementById('subscriptionFee').value = '';
+            document.getElementById('annualFee').value = '';
+            document.getElementById('gstApplicable').value = '';
+            document.getElementById('membershipDescription').value = '';
+            
+            alert('Membership plan added successfully!');
+        }
+        
+        function editMembershipPlan(planId) {
+            alert(`Edit functionality for ${planId} membership plan will be implemented`);
+        }
+        
+        function deleteMembershipPlan(planId) {
+            if (confirm('Are you sure you want to delete this membership plan?')) {
+                alert(`Membership plan ${planId} deleted successfully!`);
+            }
+        }
+        
+        // About Edit Functions
+        function showAboutEdit() {
+            hideAllScreens();
+            document.getElementById('aboutEditScreen').style.display = 'block';
+            document.getElementById('menuContainer').style.display = 'none';
+        }
+        
+        function updateVision(event) {
+            event.preventDefault();
+            const visionText = document.getElementById('visionText').value;
+            alert('Vision statement updated successfully!');
+        }
+        
+        function updateMission(event) {
+            event.preventDefault();
+            const missionText = document.getElementById('missionText').value;
+            alert('Mission statement updated successfully!');
+        }
+        
+        function updateCoreValues(event) {
+            event.preventDefault();
+            const coreValuesText = document.getElementById('coreValuesText').value;
+            alert('Core values updated successfully!');
+        }
+        
+        function updateActivities(event) {
+            event.preventDefault();
+            const activitiesText = document.getElementById('activitiesText').value;
+            alert('Activities updated successfully!');
+        }
+        
+        // Single Folder Animation Functions
+        let folderOpen = false;
+        
+        function toggleMainFolder() {
+            const folder = document.getElementById('mainFolder');
+            
+            if (!folderOpen) {
+                // Open the folder
+                folder.classList.add('open');
+                folderOpen = true;
+            } else {
+                // Close the folder
+                folder.classList.remove('open');
+                folderOpen = false;
+                
+                // Reset any paper states
+                const allPapers = document.querySelectorAll('.paper-option');
+                allPapers.forEach(paper => {
+                    paper.classList.remove('paper-selected');
+                    paper.style.opacity = '';
+                    paper.style.pointerEvents = '';
+                });
+            }
+        }
+        
+        function selectOption(event, optionType) {
+            event.stopPropagation(); // Prevent folder click
+            
+            const selectedPaper = event.currentTarget;
+            const allPapers = document.querySelectorAll('.paper-option');
+            
+            // Add selection animation
+            selectedPaper.classList.add('paper-selected');
+            
+            // Hide other papers with fade effect
+            allPapers.forEach(paper => {
+                if (paper !== selectedPaper) {
+                    paper.style.opacity = '0.3';
+                    paper.style.pointerEvents = 'none';
+                }
+            });
+            
+            // Show selection feedback
+            setTimeout(() => {
+                expandToLoginPage(optionType);
+            }, 300);
+        }
+        
+        function expandToLoginPage(optionType) {
+            // Create expansion overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'folder-expanded';
+            overlay.innerHTML = `
+                <div class="folder-expanded-content">
+                    <div style="text-align: center;">
+                        <div style="font-size: 24px; font-weight: 600; margin-bottom: 20px; color: #111827;">
+                            ${getOptionTitle(optionType)}
+                        </div>
+                        <div style="font-size: 16px; color: #6b7280; margin-bottom: 30px;">
+                            Preparing ${getOptionTitle(optionType).toLowerCase()}...
+                        </div>
+                        <div style="width: 40px; height: 40px; border: 3px solid #f3f4f6; border-top: 3px solid #3b82f6; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto;"></div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(overlay);
+            
+            // Show overlay with animation
+            setTimeout(() => {
+                overlay.classList.add('show');
+            }, 10);
+            
+            // Navigate to appropriate page after expansion
+            setTimeout(() => {
+                document.body.removeChild(overlay);
+                navigateToLoginPage(optionType);
+                resetFolder();
+            }, 600);
+        }
+        
+        function getOptionTitle(optionType) {
+            switch(optionType) {
+                case 'user': return 'User Access';
+                case 'board': return 'Board Member Login';
+                default: return 'Login';
+            }
+        }
+        
+        function navigateToLoginPage(optionType) {
+            switch(optionType) {
+                case 'user':
+                    showUserLogin();
+                    break;
+                case 'board':
+                    showBoardMemberLogin();
+                    break;
+            }
+        }
+        
+        function resetFolder() {
+            const folder = document.getElementById('mainFolder');
+            const allPapers = document.querySelectorAll('.paper-option');
+            
+            folder.classList.remove('open');
+            folderOpen = false;
+            
+            allPapers.forEach(paper => {
+                paper.classList.remove('paper-selected');
+                paper.style.opacity = '';
+                paper.style.pointerEvents = '';
+            });
+        }
+        
+        // Add spinning animation for loading indicator
+        const spinKeyframes = `
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .folder-expanded {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 2000;
+                opacity: 0;
+                transition: opacity 0.2s ease;
+            }
+            .folder-expanded.show {
+                opacity: 1;
+            }
+            .folder-expanded-content {
+                text-align: center;
+                padding: 40px;
+            }
+        `;
+        
+        // Add the keyframes to the document
+        const style = document.createElement('style');
+        style.textContent = spinKeyframes;
+        document.head.appendChild(style);
+        
+        // Bubble Menu Functions
+        let bubbleMenuOpen = false;
+        
+        function toggleBubbleMenu() {
+            const overlay = document.getElementById('bubbleMenuOverlay');
+            const menuButton = document.getElementById('menuButton');
+            const bubbleItems = document.querySelectorAll('.bubble-menu-item');
+            
+            if (!bubbleMenuOpen) {
+                // Open bubble menu
+                bubbleMenuOpen = true;
+                overlay.classList.add('show');
+                menuButton.classList.add('open');
+                
+                // Animate bubble items in
+                bubbleItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.transform = 'scale(1)';
+                        item.style.transition = 'all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                    }, index * 100);
+                });
+            } else {
+                closeBubbleMenu();
+            }
+        }
+        
+        function closeBubbleMenu(event) {
+            if (event && event.target !== event.currentTarget) return;
+            
+            const overlay = document.getElementById('bubbleMenuOverlay');
+            const menuButton = document.getElementById('menuButton');
+            const bubbleItems = document.querySelectorAll('.bubble-menu-item');
+            
+            bubbleMenuOpen = false;
+            menuButton.classList.remove('open');
+            
+            // Animate bubble items out
+            bubbleItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.transform = 'scale(0)';
+                    item.style.transition = 'all 0.2s ease-in';
+                }, index * 50);
+            });
+            
+            // Hide overlay after animation
+            setTimeout(() => {
+                overlay.classList.remove('show');
+            }, 300);
+        }
+        
+        // Update menu item click handlers to close bubble menu
+        function showAbout() {
+            closeBubbleMenu();
+            document.getElementById('welcomeSection').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('boardScreen').style.display = 'none';
+            document.getElementById('eventsCalendarScreen').style.display = 'none';
+            document.getElementById('eventsNewslettersScreen').style.display = 'none';
+            document.getElementById('membershipScreen').style.display = 'none';
+            document.getElementById('contactScreen').style.display = 'none';
+            document.getElementById('aboutScreen').style.display = 'block';
+            document.getElementById('editDashboardScreen').style.display = 'none';
+            document.getElementById('calendarEditScreen').style.display = 'none';
+            document.getElementById('eventsEditScreen').style.display = 'none';
+            document.getElementById('membershipEditScreen').style.display = 'none';
+            document.getElementById('aboutEditScreen').style.display = 'none';
+            hideAllLoginScreens();
+            // Hide 3-dot menu on sub-pages
+            document.getElementById('menuContainer').style.display = 'none';
+        }
+        
+        // Update other navigation functions to close bubble menu
+        const originalShowBoardMembers = showBoardMembers;
+        showBoardMembers = function() {
+            closeBubbleMenu();
+            originalShowBoardMembers();
+        };
+        
+        const originalShowContact = showContact;
+        showContact = function() {
+            closeBubbleMenu();
+            originalShowContact();
+        };
+        
+        const originalShowEventsCalendar = showEventsCalendar;
+        showEventsCalendar = function() {
+            closeBubbleMenu();
+            originalShowEventsCalendar();
+        };
+        
+        const originalShowEventsNewsletters = showEventsNewsletters;
+        showEventsNewsletters = function() {
+            closeBubbleMenu();
+            originalShowEventsNewsletters();
+        };
+        
+        const originalShowMembership = showMembership;
+        showMembership = function() {
+            closeBubbleMenu();
+            originalShowMembership();
+        };
+        
+        const originalShowEditDashboard = showEditDashboard;
+        showEditDashboard = function() {
+            closeBubbleMenu();
+            originalShowEditDashboard();
+        };
+        
+        const originalHandleLogout = handleLogout;
+        handleLogout = function() {
+            closeBubbleMenu();
+            originalHandleLogout();
+        };
+        
+        function handleLogout() {
+            // Reset user type to public
+            currentUserType = 'public';
+            
+            // Hide edit option
+            document.getElementById('editOption').style.display = 'none';
+            
+            // Close dropdown menu
+            document.getElementById('dropdownMenu').classList.remove('show');
+            
+            // Show confirmation and redirect to welcome
+            const confirmLogout = confirm('Are you sure you want to logout?');
+            if (confirmLogout) {
+                alert('You have been logged out successfully.');
+                showWelcomeScreen();
+            }
+        }
+        
+        function showBoardMembers() {
+            document.getElementById('welcomeSection').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('boardScreen').style.display = 'block';
+            document.getElementById('dropdownMenu').classList.remove('show');
+            // Hide 3-dot menu on sub-pages
+            document.getElementById('menuContainer').style.display = 'none';
+        }
+        
+        function showEventsCalendar() {
+            document.getElementById('welcomeSection').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('eventsCalendarScreen').style.display = 'block';
+            document.getElementById('dropdownMenu').classList.remove('show');
+            // Hide 3-dot menu on sub-pages
+            document.getElementById('menuContainer').style.display = 'none';
+        }
+        
+        function showEventsNewsletters() {
+            document.getElementById('welcomeSection').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('eventsNewslettersScreen').style.display = 'block';
+            document.getElementById('dropdownMenu').classList.remove('show');
+            
+            // Show Events section by default
+            showSubSection('pastEvents');
+            // Hide 3-dot menu on sub-pages
+            document.getElementById('menuContainer').style.display = 'none';
+        }
+        
+        function showMembership() {
+            document.getElementById('welcomeSection').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('membershipScreen').style.display = 'block';
+            document.getElementById('dropdownMenu').classList.remove('show');
+            // Hide 3-dot menu on sub-pages
+            document.getElementById('menuContainer').style.display = 'none';
+        }
+        
+        function showContact() {
+            document.getElementById('welcomeSection').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('contactScreen').style.display = 'block';
+            document.getElementById('dropdownMenu').classList.remove('show');
+            // Hide 3-dot menu on sub-pages
+            document.getElementById('menuContainer').style.display = 'none';
+        }
+        
+        // Sub-section navigation
+        function showSubSection(section) {
+            // Hide all sub-sections
+            document.getElementById('pastEventsSection').classList.remove('active');
+            document.getElementById('webinarsSection').classList.remove('active');
+            document.getElementById('newslettersSection').classList.remove('active');
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.sub-nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected section and activate button
+            if (section === 'pastEvents') {
+                document.getElementById('pastEventsSection').classList.add('active');
+                buttons[0].classList.add('active');
+            } else if (section === 'webinars') {
+                document.getElementById('webinarsSection').classList.add('active');
+                buttons[1].classList.add('active');
+            } else if (section === 'newsletters') {
+                document.getElementById('newslettersSection').classList.add('active');
+                buttons[2].classList.add('active');
+            }
+        }
+        
+        // Event details modal
+        function showEventDetails(eventId) {
+            const modal = document.getElementById('eventDetailsModal');
+            const title = document.getElementById('modalTitle');
+            const content = document.getElementById('modalContent');
+            
+            let eventData = {};
+            
+            if (eventId === 'space2025') {
+                eventData = {
+                    title: 'SPACE-2025',
+                    content: `
+                        <p><strong>Sustainable Practices and Advanced Construction Engineering - 2025</strong></p>
+                        <p>SPACE-2025 was a landmark conference organized by ACCE(I) focusing on sustainable construction practices and advanced engineering solutions for the modern world.</p>
+                        <p><strong>Key Highlights:</strong></p>
+                        <p>• Sustainable building materials and green construction techniques</p>
+                        <p>• Advanced structural engineering solutions</p>
+                        <p>• Environmental impact assessment in construction</p>
+                        <p>• Smart city infrastructure development</p>
+                        <p>• Industry experts from across India and international speakers</p>
+                        <p><strong>Venue:</strong> Bangalore International Exhibition Centre</p>
+                        <p><strong>Duration:</strong> 3 days of intensive sessions and workshops</p>
+                        <p><strong>Participants:</strong> Over 500 civil engineers, architects, and industry professionals</p>
+                    `
+                };
+            } else if (eventId === 'race2025') {
+                eventData = {
+                    title: 'RACE 2025',
+                    content: `
+                        <p><strong>Resilient Architecture and Construction Excellence - 2025</strong></p>
+                        <p>RACE 2025 focused on building resilient infrastructure that can withstand natural disasters and climate change challenges.</p>
+                        <p><strong>Key Highlights:</strong></p>
+                        <p>• Earthquake-resistant construction techniques</p>
+                        <p>• Climate-resilient building design</p>
+                        <p>• Advanced materials for extreme weather conditions</p>
+                        <p>• Disaster management in construction projects</p>
+                        <p>• Case studies from successful resilient projects</p>
+                        <p><strong>Venue:</strong> Chennai Trade Centre</p>
+                        <p><strong>Duration:</strong> 2 days of technical sessions</p>
+                        <p><strong>Participants:</strong> 350+ professionals from South India</p>
+                    `
+                };
+            } else if (eventId === 'redecon2025') {
+                eventData = {
+                    title: 'REDECON 2025',
+                    content: `
+                        <p><strong>Renewable Energy and Digital Construction - 2025</strong></p>
+                        <p>REDECON 2025 explored the integration of renewable energy systems in construction and the digital transformation of the construction industry.</p>
+                        <p><strong>Key Highlights:</strong></p>
+                        <p>• Solar and wind energy integration in buildings</p>
+                        <p>• Building Information Modeling (BIM) applications</p>
+                        <p>• IoT and smart building technologies</p>
+                        <p>• Digital project management tools</p>
+                        <p>• Energy-efficient construction practices</p>
+                        <p><strong>Venue:</strong> Hyderabad International Convention Centre</p>
+                        <p><strong>Duration:</strong> 3 days including hands-on workshops</p>
+                        <p><strong>Participants:</strong> 450+ engineers and technology professionals</p>
+                    `
+                };
+            }
+            
+            title.textContent = eventData.title;
+            content.innerHTML = eventData.content;
+            modal.style.display = 'flex';
+        }
+        
+        function closeEventDetails() {
+            document.getElementById('eventDetailsModal').style.display = 'none';
+        }
+        
+        // Calendar navigation (placeholder functions)
+        function previousMonth() {
+            // Calendar navigation logic would go here
+        }
+        
+        function nextMonth() {
+            // Calendar navigation logic would go here
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('dropdownMenu');
+            const button = document.querySelector('.menu-button');
+            
+            if (!button.contains(event.target) && !menu.contains(event.target)) {
+                menu.classList.remove('show');
+            }
+        });
+        
+        // Tab switching functions for combined login/signup page
+        function showLoginTab() {
+            // Show login form, hide signup form
+            document.getElementById('loginTab').style.display = 'block';
+            document.getElementById('signupTab').style.display = 'none';
+            
+            // Update tab buttons
+            const tabButtons = document.querySelectorAll('#userLoginScreen .sub-nav-btn');
+            tabButtons[0].classList.add('active');
+            tabButtons[1].classList.remove('active');
+        }
+        
+        function showSignupTab() {
+            // Show signup form, hide login form
+            document.getElementById('loginTab').style.display = 'none';
+            document.getElementById('signupTab').style.display = 'block';
+            
+            // Update tab buttons
+            const tabButtons = document.querySelectorAll('#userLoginScreen .sub-nav-btn');
+            tabButtons[0].classList.remove('active');
+            tabButtons[1].classList.add('active');
+        }
+        
+        // Add smooth scrolling and professional interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add staggered animation delays
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+            
+            // Add intersection observer for content sections
+            const sections = document.querySelectorAll('.content-section, .image-placeholder');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+    
+    <!-- Bubble Menu Overlay -->
+    <div id="bubbleMenuOverlay" class="bubble-menu-overlay" onclick="closeBubbleMenu(event)">
+        <div class="bubble-menu-items" onclick="event.stopPropagation()">
+            <button class="bubble-menu-item board" onclick="showBoardMembers()">Board Members</button>
+            <button class="bubble-menu-item events" onclick="showEventsCalendar()">Events & Calendar</button>
+            <button class="bubble-menu-item newsletters" onclick="showEventsNewsletters()">Events & Newsletters</button>
+            <button class="bubble-menu-item contact" onclick="showContact()">Contact & Support</button>
+            <button class="bubble-menu-item membership" onclick="showMembership()">Membership</button>
+            <button class="bubble-menu-item about" onclick="showAbout()">About</button>
+            <button id="editBubbleOption" class="bubble-menu-item edit" onclick="showEditDashboard()" style="display: none;">Edit Dashboard</button>
+            <button class="bubble-menu-item logout" onclick="handleLogout()">Logout</button>
+        </div>
+    </div>
+</body>
+</html>
