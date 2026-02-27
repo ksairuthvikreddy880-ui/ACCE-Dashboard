@@ -28,115 +28,7 @@
             background: #ffffff;
         }
         
-        /* Pill Navigation */
-        .navbar {
-            background: transparent;
-            border-bottom: none;
-            padding: 1em 24px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            display: none;
-        }
-        
-        .navbar.show {
-            display: block;
-        }
-        
-        .nav-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .nav-logo {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: #ffffff;
-            padding: 8px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            text-decoration: none;
-            border: 2px solid #e5e7eb;
-        }
-        
-        .nav-logo-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .logo {
-            font-size: 20px;
-            font-weight: 600;
-            color: #1f2937;
-            text-decoration: none;
-        }
-        
-        .nav-links {
-            position: relative;
-            display: flex;
-            align-items: center;
-            height: 42px;
-            background: #000000;
-            border-radius: 9999px;
-            padding: 3px;
-            gap: 3px;
-        }
-        
-        .nav-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            padding: 0 18px;
-            background: #ffffff;
-            color: #000000;
-            text-decoration: none;
-            border-radius: 9999px;
-            box-sizing: border-box;
-            font-weight: 600;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.2px;
-            white-space: nowrap;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            background: #000000;
-            color: #ffffff;
-        }
-        
-        .nav-link.active {
-            background: #ffffff;
-            color: #000000;
-            position: relative;
-        }
-        
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 12px;
-            height: 12px;
-            background: #000000;
-            border-radius: 50px;
-            z-index: 4;
-        }
+
         
         /* Welcome Section */
         .welcome-section {
@@ -983,10 +875,6 @@
         
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
             .nav-right {
                 gap: 16px;
             }
@@ -2706,21 +2594,7 @@
             </button>
         </div>
         
-        <!-- Professional Navigation -->
-        <nav class="navbar">
-            <div class="nav-content">
-                <!-- Nav links -->
-                <div class="nav-right">
-                    <div class="nav-links">
-                        <a href="#" class="nav-link active">Home</a>
-                        <a href="#" class="nav-link">Events</a>
-                        <a href="#" class="nav-link">Calendar</a>
-                        <a href="#" class="nav-link">Board</a>
-                        <a href="#" class="nav-link">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+
         
         <!-- Welcome Section -->
         <section id="welcomeSection" class="welcome-section">
@@ -4120,9 +3994,6 @@ Community outreach and public service projects</textarea>
             
             // Keep the menu visible when returning to home from other screens
             updateNavigationVisibility();
-            
-            // Show navbar after login
-            document.querySelector('.navbar').classList.add('show');
         }
         
         function showAbout() {
@@ -4137,9 +4008,6 @@ Community outreach and public service projects</textarea>
             document.getElementById('dropdownMenu').classList.remove('show');
             // Hide hamburger menu on inner pages
             updateNavigationVisibility();
-            const navbar = document.querySelector('.navbar');
-            navbar.classList.remove('show');
-            navbar.style.display = 'none';
         }
         
         // LOGIN FLOW FUNCTIONS
@@ -4174,14 +4042,12 @@ Community outreach and public service projects</textarea>
             hideAllScreens();
             document.getElementById('platformOptionsScreen').style.display = 'block';
             document.getElementById('menuContainer').style.display = 'none';
-            document.querySelector('.navbar').classList.remove('show');
         }
         
         function showWelcomeScreen() {
             hideAllScreens();
             document.getElementById('welcomeSection').style.display = 'block';
             updateNavigationVisibility();
-            document.querySelector('.navbar').classList.remove('show');
         }
         
         function showLoginSelection() {
@@ -4759,9 +4625,6 @@ Community outreach and public service projects</textarea>
             hideAllLoginScreens();
             // Hide hamburger menu on inner pages
             updateNavigationVisibility();
-            const navbar = document.querySelector('.navbar');
-            navbar.classList.remove('show');
-            navbar.style.display = 'none';
         }
         
         // Update other navigation functions to close bubble menu
@@ -4839,9 +4702,6 @@ Community outreach and public service projects</textarea>
             document.getElementById('dropdownMenu').classList.remove('show');
             // Hide hamburger menu on inner pages
             updateNavigationVisibility();
-            const navbar = document.querySelector('.navbar');
-            navbar.classList.remove('show');
-            navbar.style.display = 'none';
         }
         
         function showEventsCalendar() {
@@ -4851,9 +4711,6 @@ Community outreach and public service projects</textarea>
             document.getElementById('dropdownMenu').classList.remove('show');
             // Hide hamburger menu on inner pages
             updateNavigationVisibility();
-            const navbar = document.querySelector('.navbar');
-            navbar.classList.remove('show');
-            navbar.style.display = 'none';
         }
         
         function showEventsNewsletters() {
@@ -4866,9 +4723,6 @@ Community outreach and public service projects</textarea>
             showSubSection('pastEvents');
             // Hide hamburger menu on inner pages
             updateNavigationVisibility();
-            const navbar = document.querySelector('.navbar');
-            navbar.classList.remove('show');
-            navbar.style.display = 'none';
         }
         
         function showMembership() {
@@ -4878,9 +4732,6 @@ Community outreach and public service projects</textarea>
             document.getElementById('dropdownMenu').classList.remove('show');
             // Hide hamburger menu on inner pages
             updateNavigationVisibility();
-            const navbar = document.querySelector('.navbar');
-            navbar.classList.remove('show');
-            navbar.style.display = 'none';
         }
         
         function showContact() {
@@ -4890,9 +4741,6 @@ Community outreach and public service projects</textarea>
             document.getElementById('dropdownMenu').classList.remove('show');
             // Hide hamburger menu on inner pages
             updateNavigationVisibility();
-            const navbar = document.querySelector('.navbar');
-            navbar.classList.remove('show');
-            navbar.style.display = 'none';
         }
         
         // Sub-section navigation
