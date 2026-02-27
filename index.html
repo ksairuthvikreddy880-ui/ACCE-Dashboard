@@ -4851,7 +4851,7 @@ Community outreach and public service projects</textarea>
             const menu = document.getElementById('dropdownMenu');
             const button = document.querySelector('.menu-button');
             
-            if (!button.contains(event.target) && !menu.contains(event.target)) {
+            if (button && menu && !button.contains(event.target) && !menu.contains(event.target)) {
                 menu.classList.remove('show');
             }
         });
